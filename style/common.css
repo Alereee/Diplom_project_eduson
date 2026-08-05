@@ -1,0 +1,43 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.nav-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-li-menu {
+  gap: 60px;
+}
+.nav-li-theme {
+  gap: 10px;
+}
+.theme-switch {
+  display: flex;
+  border: 1px solid #000;
+  border-radius: 20px;
+  width: 40px;
+  height: 25px;
+  align-items: center;
+  background-color: #7a6666;
+}
+.switch {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #000;
+  margin: 3px;
+}
