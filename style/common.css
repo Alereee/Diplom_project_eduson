@@ -1,14 +1,19 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -16,10 +21,13 @@ a {
   text-decoration: none;
   color: inherit;
 }
-body{
-  font-family: 'Inter', sans-serif;
+button {
+  cursor: pointer;
 }
-header{
+body {
+  font-family: "Inter", sans-serif;
+}
+header {
   height: 111px;
   display: flex;
   align-items: center;
@@ -28,7 +36,7 @@ header{
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 nav {
   width: 100%;
@@ -41,12 +49,12 @@ nav ul {
 }
 li {
   list-style: none;
-
 }
 a {
   text-decoration: none;
 }
-header a,p {
+header a,
+p {
   font-size: 20px;
   font-weight: 600;
   line-height: 33px;
@@ -57,7 +65,8 @@ header a,p {
   align-items: center;
   justify-content: space-between;
 }
-.nav-li-menu, .nav-li-theme{
+.nav-li-menu,
+.nav-li-theme {
   padding-top: 7px;
 }
 .nav-li-menu {

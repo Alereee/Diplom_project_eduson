@@ -41,15 +41,25 @@
     </header>
     <main>
       <section class="space-hero">
-  <div class="space-hero__content">
-    <h1>Покорение космоса</h1>
-    <p>Вместе мы откроем новые миры.</p>
-  </div>
-  <div class="space-hero__image">
-  </div>
-</section>
-
+        <div class="space-hero__content wrapper">
+          <h1>Что сегодня посмотреть?</h1>
+        </div>
+        <img
+          src="assets/sec-1-back.png"
+          alt="Космонавты смотрят на планеты"
+          class="section-bg-img"
+        />
+      </section>
+      <section class="movie-list">
+        <button class="arrow-left disabled" onclick="moveSlider(-1)">></button>
+        <div class="wrapper-movies">
+          <div class="movies-slider"></div>
+        </div>
+        <button class="arrow-right" onclick="moveSlider(1)">></button>
+      </section>
     </main>
     <footer></footer>
   </body>
+  <script src="script/config-movies.js"></script>
+  <script src="script/slider-main.js"></script>
 </html>
