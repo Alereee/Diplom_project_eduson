@@ -51,11 +51,23 @@
         />
       </section>
       <section class="movie-list">
-        <button class="arrow-left disabled" onclick="moveSlider(-1)">></button>
+        <button class="arrow-left disabled" onclick="moveSlider(-1)">
+          <img src="assets/arrow-right-black.svg" alt="arrow-left" />
+        </button>
         <div class="wrapper-movies">
           <div class="movies-slider"></div>
         </div>
-        <button class="arrow-right" onclick="moveSlider(1)">></button>
+        <button class="arrow-right" onclick="moveSlider(1)">
+          <img src="assets/arrow-right-black.svg" alt="arrow-right" />
+        </button>
+      </section>
+      <section class="search">
+        <img src="assets/sec-1-back.png" alt="search" class="search-input"/>
+        <div class="search-input__content">
+          <input name="text" type="text" placeholder="Поиск" class="search-input__input"/>
+          
+          <button class="search-input__btn">Поиск</button>
+        </div>
       </section>
     </main>
     <footer></footer>
