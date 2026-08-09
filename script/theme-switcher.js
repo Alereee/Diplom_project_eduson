@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     switchElement.classList.remove("active");
     themeSwitcher.style.backgroundColor = "white";
   }
-  switchElement.addEventListener("click", () => {
+  themeSwitcher.addEventListener("click", () => {
     currentText.textContent =
       currentText.textContent.trim() === "Тёмная тема"
         ? "Светлая тема"
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "white"
         : "#dfdddd";
 
-    console.log(themeSwitcher.style.backgroundColor);
     switchElement.classList.toggle("active");
     localStorage.setItem(
       "theme-switch",

@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #000000;
 }
+
 .section-bg-img {
   position: absolute;
   right: 0;
@@ -33,9 +34,10 @@
 
 .space-hero h1 {
   color: #ffffff;
-  font-size: 2.5rem;
-  max-width: 400px;
+  max-width: 611px;
   margin: 0;
+  font-size: 80px;
+  font-weight: 900;
 }
 .movie-list {
   margin: 50px auto;
@@ -76,7 +78,7 @@
 }
 .movie-card {
   width: 380px;
-  height: 400px;
+  height: 500px;
   position: relative;
 }
 .movie-rating {
@@ -96,8 +98,8 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 80px;
-  background-color: #000000;
+  height: 222px;
+  background: linear-gradient(to bottom, rgba(1, 1, 1, 0) 25%, rgba(1, 1, 1, 1) 40%);
   display: flex;
   align-items: center;
 }
@@ -105,4 +107,57 @@
   color: #ffffff;
   font-size: 1.5rem;
   padding-left: 20px;
+}
+.sec-pod{
+  width: 100%;
+  min-height: 620px;
+  position: relative;
+}
+.sec-pod-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sec-pod::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: linear-gradient(to right, #000000 50%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+.sec-pod-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.sec-pod-content-div{
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+.sec-pod-content-div > *{
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  line-height: 1.35em;
+}
+.sec-pod-content-div h1{
+  font-size: 48px;
+  width: 599px;
+}
+.sec-pod-content-div p{
+  font-size: 24px;
+  width: 820px;
 }
