@@ -1,0 +1,178 @@
+import { createMovieCard } from "./card-movie.js";
+
+export const moviesConfig = [
+  {
+    id: 1,
+    title: "Горничная",
+    poster: "./assets/the-housemaid.png",
+    rating: 7.7,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 2,
+    title: "Кентавр",
+    poster: "./assets/kentavr.png",
+    rating: 7.8,
+    genre: "триллер",
+    year: 2023,
+    country: "Россия",
+  },
+  {
+    id: 3,
+    title: "Иллюзия обмана 3",
+    poster: "./assets/now-you-see-me-3.png",
+    rating: 7.1,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 4,
+    title: "Западня",
+    poster: "./assets/locked.png",
+    rating: 6.0,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 5,
+    title: "Граф Монте-Кристо",
+    poster: "./assets/the-count-of-monte-cristo.png",
+    rating: 8.1,
+    genre: "триллер",
+    year: 2024,
+    country: "Франция",
+  },
+  {
+    id: 6,
+    title: "Ограбление в Лос-Анджелесе",
+    poster: "./assets/crime-101.png",
+    rating: 6.6,
+    genre: "триллер",
+    year: 2026,
+    country: "США",
+  },
+  {
+    id: 7,
+    title: "В сером воротнике",
+    poster: "./assets/in-the-grey.png",
+    rating: 5.9,
+    genre: "триллер",
+    year: 2026,
+    country: "Великобритания",
+  },
+  {
+    id: 8,
+    title: "Август",
+    poster: "./assets/avgust.png",
+    rating: 7.8,
+    genre: "триллер",
+    year: 2025,
+    country: "Россия",
+  },
+  {
+    id: 9,
+    title: "Компаньон",
+    poster: "./assets/companion.png",
+    rating: 6.6,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 10,
+    title: "Каштановый человечек",
+    poster: "./assets/kastanjemanden.png",
+    rating: 9.5,
+    genre: "триллер",
+    year: 2024,
+    country: "Дания",
+  },
+  {
+    id: 11,
+    title: "Нюрнберг",
+    poster: "./assets/nuremberg.png",
+    rating: 7.3,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 12,
+    title: "Голосовой помощник",
+    poster: "./assets/golosovoy-pomoshnik.png",
+    rating: 7.3,
+    genre: "триллер",
+    year: 2025,
+    country: "Россия",
+  },
+  {
+    id: 13,
+    title: "Собиратель душ",
+    poster: "./assets/longlegs.png",
+    rating: 7.1,
+    genre: "триллер",
+    year: 2024,
+    country: "Канада",
+  },
+  {
+    id: 14,
+    title: "Остров проклятых",
+    poster: "./assets/shutter-island.png",
+    rating: 8.5,
+    genre: "триллер",
+    year: 2010,
+    country: "США",
+  },
+  {
+    id: 15,
+    title: "Исчезнувшая",
+    poster: "./assets/gone-girl.png",
+    rating: 8.0,
+    genre: "триллер",
+    year: 2014,
+    country: "США",
+  },
+  {
+    id: 16,
+    title: "Семь",
+    poster: "./assets/se7en.png",
+    rating: 8.3,
+    genre: "триллер",
+    year: 1995,
+    country: "США",
+  },
+  {
+    id: 17,
+    title: "Реинкарнация. Возвращение",
+    poster: "./assets/obsession.png",
+    rating: 7.9,
+    genre: "триллер",
+    year: 2025,
+    country: "США",
+  },
+  {
+    id: 18,
+    title: "Месть 2",
+    poster: "./assets/mech-2.png",
+    rating: 7.4,
+    genre: "триллер",
+    year: 2026,
+    country: "Кыргызстан",
+  },
+];
+const tabMovies = document
+  .querySelectorAll(".main-content-nav a")
+  .forEach((e) => {
+    e.addEventListener("click", (e) => {
+      console.log(e.target);
+    });
+  });
+moviesConfig.forEach((movie) => {
+  document
+    .querySelector(".main-content-movies")
+    .appendChild(createMovieCard(movie));
+});

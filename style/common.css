@@ -30,6 +30,9 @@ button {
 }
 body {
   font-family: "Inter", sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 header {
   height: 111px;
@@ -99,7 +102,7 @@ p {
   transition: all 0.5s ease-in-out;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation; 
+  touch-action: manipulation;
 }
 .switch.active {
   transform: translateX(100%);
@@ -174,7 +177,7 @@ p {
   align-items: center;
   justify-content: space-between;
 }
-.search-input__div img{
+.search-input__div img {
   margin-left: 40px;
   margin-right: 33px;
 }
@@ -197,13 +200,13 @@ footer {
 }
 .footer-social a {
   position: relative;
-  display: flex;            
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
 }
-.footer-social a img{
+.footer-social a img {
   position: absolute;
   top: 0;
   left: 0;

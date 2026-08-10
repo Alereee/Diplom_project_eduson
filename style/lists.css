@@ -1,0 +1,48 @@
+.main-films {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+}
+aside {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 310px;
+  gap: 20px;
+  padding: 0 20px;
+}
+aside .aside-lab {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: 700;
+  font-size: 30px;
+}
+select {
+  background-color: #dfdddd;
+}
+.main-content {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-content-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-content-nav {
+  display: flex;
+  gap: 20px;
+}
+.main-content-nav button {
+  font-size: 30px;
+}
+.main-content-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

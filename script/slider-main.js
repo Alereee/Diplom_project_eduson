@@ -9,8 +9,7 @@ const moveSlider = (direction) => {
     left: targetScroll,
     behavior: "smooth",
   });
-  console.log(targetScroll);
-  if (targetScroll <= 10){
+  if (targetScroll <= 10) {
     document.querySelector(".arrow-left").classList.add("disabled");
     targetScroll = 0;
     sliderTrack.scrollLeft = 0;
@@ -19,7 +18,7 @@ const moveSlider = (direction) => {
     document.querySelector(".arrow-left").classList.remove("disabled");
   if (targetScroll - 10 < sliderTrack.scrollWidth - sliderTrack.clientWidth)
     document.querySelector(".arrow-right").classList.remove("disabled");
-    
+
   if (targetScroll >= sliderTrack.scrollWidth - sliderTrack.clientWidth)
     document.querySelector(".arrow-right").classList.add("disabled");
 };

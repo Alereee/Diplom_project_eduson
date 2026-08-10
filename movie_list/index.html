@@ -1,88 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style/common.css" />
-        <link rel="stylesheet" href="../style/index.css" />
-        <link rel="stylesheet" href="../style/lists.css" />
-        <link rel="stylesheet" href="../style/fonts.css" />
-        <title>Document</title>
-    </head>
-    <body>
-        <header>
-            <div class="wrapper">
-                <nav>
-                <ul>
-                    <li>
-                    <div class="nav-li">
-                        <a href="#">
-                        <img src="../assets/logo.svg" alt="logo" />
-                        </a>
-                    </div>
-                    </li>
-                    <li>
-                    <div class="nav-li nav-li-menu">
-                        <a href="#">Фильмы</a>
-                        <a href="#">Сериалы</a>
-                    </div>
-                    </li>
-                    <li>
-                    <div class="nav-li nav-li-theme">
-                        <p>Тёмная тема</p>
-                        <div class="theme-switch">
-                        <div class="switch"></div>
-                        </div>
-                    </div>
-                    </li>
-                </ul>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <section class="search">
-                <img src="../assets/search-back.png" alt="search" class="search-input" />
-                <div class="search-input__content">
-                    <div class="search-input__div">
-                        <img
-                        src="../assets/search-input.png"
-                        alt="search"
-                        class="search-input__icon"
-                        />
-                        <input
-                        name="text"
-                        type="text"
-                        placeholder="Что сегодня посмотреть"
-                        class="search-input__input"
-                        />
-                        <button class="search-input__btn">Найти</button>
-                    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/common.css" />
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/lists.css" />
+    <link rel="stylesheet" href="../style/fonts.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <nav>
+          <ul>
+            <li>
+              <div class="nav-li">
+                <a href="../index.html">
+                  <img src="../assets/logo.svg" alt="logo" />
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="nav-li nav-li-menu">
+                <a href="./index.html">Фильмы</a>
+                <a href="../series_list/index.html">Сериалы</a>
+              </div>
+            </li>
+            <li>
+              <div class="nav-li nav-li-theme">
+                <p>Тёмная тема</p>
+                <div class="theme-switch">
+                  <div class="switch"></div>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <div class="wrapper wrapper-footer">
-                <p>2026 &copy; Илья Мелехин</p>
-                <div class="footer-social">
-                <a href="#">
-                    <img src="../assets/vk-white.svg" alt="vk" class="icon-white"/>
-                    <img src="../assets/vk-hover.svg" alt="vk-hover" class="icon-hover"/>
-                </a>
-                <a href="#">
-                    <img src="../assets/tg-white.svg" alt="telegram" class="icon-white"/>
-                    <img src="../assets/tg-hover.svg" alt="tg-hover" class="icon-hover"/>
-                </a>
-                <a href="#">
-                    <img src="../assets/y-white.svg" alt="youtube" class="icon-white"/>
-                    <img src="../assets/y-hover.svg" alt="yt-hover" class="icon-hover"/>
-                </a>
-                <a href="#">
-                    <img src="../assets/Yandex_Zen_logo_icon.svg" alt="yandex" class="icon-white"/>
-                    <img src="../assets/dzen-hover.svg" alt="yandex-hover" class="icon-hover"/>
-                </a>
-                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="search">
+        <img
+          src="../assets/search-back.png"
+          alt="search"
+          class="search-input"
+        />
+        <div class="search-input__content">
+          <div class="search-input__div">
+            <img
+              src="../assets/search-input.png"
+              alt="search"
+              class="search-input__icon"
+            />
+            <input
+              name="text"
+              type="text"
+              placeholder="Что сегодня посмотреть"
+              class="search-input__input"
+            />
+            <button class="search-input__btn">Найти</button>
+          </div>
+        </div>
+      </section>
+      <section class="main-films">
+        <aside>
+          <div class="aside-lab">
+            <label>Жанр</label>
+            <select name="genre" id="">
+              <option value="genre">Все жанры</option>
+            </select>
+          </div>
+          <div class="aside-lab">
+            <label>Рейтинг</label>
+            <select name="rating" id="">
+              <option value="rating">Выбрать рейтинг</option>
+            </select>
+          </div>
+          <div class="aside-lab">
+            <label>Страны</label>
+            <select name="stranger" id="">
+              <option value="stranger">Все страны</option>
+            </select>
+          </div>
+          <div class="aside-lab">
+            <label>Год выпуска</label>
+            <select name="stranger" id="">
+              <option value="stranger">Все годы</option>
+            </select>
+          </div>
+        </aside>
+        <div class="main-content">
+          <div class="main-content-title">
+            <h2>Фильмы</h2>
+            <div class="main-content-nav">
+              <a href="#1">1</a>
+              <a href="#2">2</a>
+              <a href="#3">3</a>
+              <a href="#4">4</a>
+              <a href="#5">5</a>
             </div>
-        </footer>
-    </body>
-    <script src="../script/theme-switcher.js" defer></script>
+          </div>
+          <div class="main-content-movies"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrapper wrapper-footer">
+        <p>2026 &copy; Илья Мелехин</p>
+        <div class="footer-social">
+          <a href="#">
+            <img src="../assets/vk-white.svg" alt="vk" class="icon-white" />
+            <img
+              src="../assets/vk-hover.svg"
+              alt="vk-hover"
+              class="icon-hover"
+            />
+          </a>
+          <a href="#">
+            <img
+              src="../assets/tg-white.svg"
+              alt="telegram"
+              class="icon-white"
+            />
+            <img
+              src="../assets/tg-hover.svg"
+              alt="tg-hover"
+              class="icon-hover"
+            />
+          </a>
+          <a href="#">
+            <img src="../assets/y-white.svg" alt="youtube" class="icon-white" />
+            <img
+              src="../assets/y-hover.svg"
+              alt="yt-hover"
+              class="icon-hover"
+            />
+          </a>
+          <a href="#">
+            <img
+              src="../assets/Yandex_Zen_logo_icon.svg"
+              alt="yandex"
+              class="icon-white"
+            />
+            <img
+              src="../assets/dzen-hover.svg"
+              alt="yandex-hover"
+              class="icon-hover"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../script/theme-switcher.js" defer></script>
+  <script src="../script/config-movies-films.js" type="module" defer></script>
+  <script src="../script/filter.js" type="module" defer></script>
 </html>
