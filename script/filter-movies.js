@@ -1,15 +1,13 @@
 import { configFilter } from "./filter.js";
 import { moviesConfig } from "./config-movies-films.js";
-export let filtered = [];
-const filterMovies = () => {
+export const filterMovies = () => {
   const activeFilters = {};
-  console.log(activeFilters);
   configFilter.forEach((item) => {
     const key = Object.keys(item).find((k) => k !== "optionsDefault");
     const selectElement = item[key];
     activeFilters[key] = selectElement.value;
   });
-  filtered = moviesConfig.filter((movie) => {
+  const filtered = moviesConfig.filter((movie) => {
     if (activeFilters.genre && movie.genre !== activeFilters.genre) {
       return false;
     }
@@ -24,6 +22,7 @@ const filterMovies = () => {
     }
     if (activeFilters.rating) {
       const [min, max] = activeFilters.rating.split("-").map(Number);
+      // console.log( max);
       const currentRating = Number(movie.rating);
       if (currentRating < min || currentRating > max) {
         return false;
@@ -31,7 +30,6 @@ const filterMovies = () => {
     }
     return true;
   });
-  console.log(filtered);
   return filtered;
 };
 
@@ -39,5 +37,7 @@ configFilter.forEach((item) => {
   const key = Object.keys(item).find((k) => k !== "optionsDefault");
   const selectElement = item[key];
 
-  selectElement.addEventListener("change", filterMovies);
+  selectElement.addEventListener("change", () => {
+    if (window.renderMovies) window.renderMovies();
+  });
 });

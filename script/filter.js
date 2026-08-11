@@ -28,8 +28,9 @@ const optionSelect = (select, array, defaultText) => {
 
   array.forEach((item) => {
     const option = document.createElement("option");
-    if (Array.isArray(item)) {
+    if (Array.isArray(item) && item.length === 2) {
       option.textContent = item[0];
+      option.value = item[1];
     } else {
       option.textContent = item;
     }
@@ -50,9 +51,10 @@ for (let item of configFilter) {
       });
 
       if (hasMovies) {
-        dynamicRanges.push([`от ${min} до ${max}`]);
-      }
+        dynamicRanges.push([`от ${min} до ${max}`, `${min}-${max}`]);
+      } 
     }
+    // console.log(dynamicRanges);
     optionSelect(selectElement, dynamicRanges, item.optionsDefault);
   } else {
     const uniqueValues = [

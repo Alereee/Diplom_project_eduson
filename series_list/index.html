@@ -65,42 +65,45 @@
       </section>
       <section class="main-films">
         <aside>
-          <div class="aside-lab">
-            <label>Жанр</label>
-            <select name="genre" id="">
-              <option value="genre">Все жанры</option>
-            </select>
-          </div>
-          <div class="aside-lab">
-            <label>Рейтинг</label>
-            <select name="rating" id="">
-              <option value="rating">Выбрать рейтинг</option>
-            </select>
-          </div>
-          <div class="aside-lab">
-            <label>Страны</label>
-            <select name="stranger" id="">
-              <option value="stranger">Все страны</option>
-            </select>
-          </div>
-          <div class="aside-lab">
-            <label>Год выпуска</label>
-            <select name="stranger" id="">
-              <option value="stranger">Все годы</option>
-            </select>
-          </div>
+          <form>
+            <div class="aside-lab">
+              <label>Жанр</label>
+              <div class="select-container">
+                <select name="genre" id=""></select>
+              </div>
+            </div>
+            <div class="aside-lab">
+              <label>Рейтинг</label>
+              <div class="select-container">
+                <select name="rating" id=""></select>
+              </div>
+            </div>
+            <div class="aside-lab">
+              <label>Страны</label>
+              <div class="select-container">
+                <select name="country" id=""></select>
+              </div>
+            </div>
+            <div class="aside-lab">
+              <label>Год выпуска</label>
+              <div class="select-container">
+                <select name="year" id=""></select>
+              </div>
+            </div>
+          </form>
         </aside>
         <div class="main-content">
           <div class="main-content-title">
             <h2>Фильмы</h2>
             <div class="main-content-nav">
-              <a href="#1">1</a>
-              <a href="#2">2</a>
-              <a href="#3">3</a>
-              <a href="#4">4</a>
-              <a href="#5">5</a>
+              <a href="#1" id="1">1</a>
+              <a href="#2" id="2">2</a>
+              <a href="#3" id="3">3</a>
+              <a href="#4" id="4">4</a>
+              <a href="#5" id="5">5</a>
             </div>
           </div>
+          <div class="main-content-movies"></div>
         </div>
       </section>
     </main>
@@ -153,4 +156,8 @@
     </footer>
   </body>
   <script src="../script/theme-switcher.js" defer></script>
+  <script src="../script/config-movies-films.js" type="module" defer></script>
+  <script src="../script/filter.js" type="module" defer></script>
+  <script src="../script/filter-movies.js" type="module" defer></script>
+  <script src="../script/card-movies-actual.js" type="module" defer></script>
 </html>
