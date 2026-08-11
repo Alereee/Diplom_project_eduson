@@ -1,5 +1,4 @@
 import { createMovieCard } from "./card-movie.js";
-
 export const moviesConfig = [
   {
     id: 1,
