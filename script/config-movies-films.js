@@ -1,7 +1,7 @@
 export const moviesConfig = [
   {
     id: 1,
-    title: "Горничная",
+    title: ["Горничная", "Gornichnaya"],
     poster: "../assets/gornichnay.png",
     rating: 7.7,
     genre: "Драма",
@@ -10,7 +10,7 @@ export const moviesConfig = [
   },
   {
     id: 2,
-    title: "Кентавр",
+    title: ["Кентавр", "Kentavr"],
     poster: "../assets/kentavr.png",
     rating: 7.8,
     genre: "Фэнтези",
@@ -19,7 +19,7 @@ export const moviesConfig = [
   },
   {
     id: 3,
-    title: "Иллюзия обмана 3",
+    title: ["Иллюзия обмана 3", "IllusionOfTrickery3"],
     poster: "../assets/now-you-see-me-3.png",
     rating: 7.1,
     genre: "Приключения",
@@ -28,7 +28,7 @@ export const moviesConfig = [
   },
   {
     id: 4,
-    title: "Западня",
+    title: ["Западня", "Locked"],
     poster: "../assets/locked.png",
     rating: 6.0,
     genre: "Триллер",
@@ -37,7 +37,7 @@ export const moviesConfig = [
   },
   {
     id: 5,
-    title: "Граф Монте-Кристо",
+    title: ["Граф Монте-Кристо", "MonteCristo"],
     poster: "../assets/the-count-of-monte-cristo.png",
     rating: 8.6,
     genre: "Исторический",
@@ -46,7 +46,7 @@ export const moviesConfig = [
   },
   {
     id: 6,
-    title: "Ограбление в Лос-Анджелесе",
+    title: ["Ограбление в Лос-Анджелесе", "CrimeInLosAngeles"],
     poster: "../assets/crime-101.png",
     rating: 6.6,
     genre: "Криминал",
@@ -55,7 +55,7 @@ export const moviesConfig = [
   },
   {
     id: 7,
-    title: "В сером",
+    title: ["В сером", "InTheGrey"],
     poster: "../assets/in-the-grey.png",
     rating: 5.9,
     genre: "Детектив",
@@ -64,7 +64,7 @@ export const moviesConfig = [
   },
   {
     id: 8,
-    title: "Август",
+    title: ["Август", "August"],
     poster: "../assets/august.png",
     rating: 7.8,
     genre: "Военный",
@@ -73,7 +73,7 @@ export const moviesConfig = [
   },
   {
     id: 9,
-    title: "Компаньон",
+    title: ["Компаньон", "Companion"],
     poster: "../assets/companion.png",
     rating: 6.6,
     genre: "Ужасы",
@@ -82,7 +82,7 @@ export const moviesConfig = [
   },
   {
     id: 10,
-    title: "Каштановый человечек",
+    title: ["Каштан", "Kastan"],
     poster: "../assets/kastanjemanden.png",
     rating: 9.5,
     genre: "Детектив",
@@ -91,7 +91,7 @@ export const moviesConfig = [
   },
   {
     id: 11,
-    title: "Нюрнберг",
+    title: ["Нюрнберг", "Nuremberg"],
     poster: "../assets/nuremberg.png",
     rating: 7.3,
     genre: "Исторический",
@@ -100,7 +100,7 @@ export const moviesConfig = [
   },
   {
     id: 12,
-    title: "Голосовой помощник",
+    title: ["Voice", "Voice"],
     poster: "../assets/golosovoy-pomoshnik.png",
     rating: 7.3,
     genre: "Фантастика",
@@ -109,7 +109,7 @@ export const moviesConfig = [
   },
   {
     id: 13,
-    title: "Собиратель душ",
+    title: ["Собиратель душ", "LongLegs"],
     poster: "../assets/longlegs.png",
     rating: 7.1,
     genre: "Ужасы",
@@ -118,7 +118,7 @@ export const moviesConfig = [
   },
   {
     id: 14,
-    title: "Остров проклятых",
+    title: ["Остров проклятых", "ShutterIsland"],
     poster: "../assets/shutter-island.png",
     rating: 8.5,
     genre: "Триллер",
@@ -127,7 +127,7 @@ export const moviesConfig = [
   },
   {
     id: 15,
-    title: "Исчезнувшая",
+    title: ["Исчезнувшая", "GoneGirl"],
     poster: "../assets/gone-girl.png",
     rating: 8.0,
     genre: "Драма",
@@ -136,7 +136,7 @@ export const moviesConfig = [
   },
   {
     id: 16,
-    title: "Семь",
+    title: ["Семь", "Seven"],
     poster: "../assets/seven.png",
     rating: 8.3,
     genre: "Криминал",
@@ -145,7 +145,7 @@ export const moviesConfig = [
   },
   {
     id: 17,
-    title: "Реинкарнация. Возвращение",
+    title: ["Реинкарнация. Возвращение", "ReincarnationReturn"],
     poster: "../assets/obsession.png",
     rating: 7.9,
     genre: "Фантастика",
@@ -154,7 +154,7 @@ export const moviesConfig = [
   },
   {
     id: 18,
-    title: "Месть 2",
+    title: ["Месть", "Mech2"],
     poster: "../assets/mech-2.png",
     rating: 7.4,
     genre: "Боевик",
