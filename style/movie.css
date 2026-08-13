@@ -1,5 +1,11 @@
-.fragments-contanier .movie-card {
-  width: 570px !important;
+.fragments-contanier a {
+  flex: 0 0 calc(100%/2 - 100px);
+  min-width: 0; 
+  box-sizing: border-box;
+}
+a .movie-card {
+  width: 100%;
+  height: 100%;
 }
 .wrapper-pod {
   margin: 0 auto;
@@ -11,46 +17,52 @@
   gap: 200px;
 }
 .movie-card-image {
-  margin-left: 37px;
+  margin-left: 19px;
   cursor: none;
+}
+.movie-card-podrobnee-content{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 .movie-card-podrobnee {
   width: 100%;
 }
 .movie-card-podrobnee h2 {
   margin-bottom: 50px;
-  font-size: 48px;
-}
-.movie-card-image {
-  /* height: 300px; */
+  font-size: 64px;
 }
 .movie-card-podrobnee h3 {
-  margin-bottom: 50px;
-  /* font-size: 32px; */
+  margin-bottom: 65px;
 }
 .movie-card-podrobnee-params {
-  margin-bottom: 10px;
   display: flex;
   align-items: start;
   justify-content: space-between;
 }
 .movie-card-podrobnee-params label {
   color: darkgrey;
-  font-size: 16px !important;
+  font-size: 24px !important;
   width: 300px;
 }
 .movie-card-podrobnee-params p {
   width: 350px;
-  font-size: 16px !important;
+  font-size: 24px !important;
   margin-bottom: 0;
-  line-height: 20px;
+  line-height: 135%;
 }
 h3 {
-  font-size: 32px;
+  font-size: 36px;
+  line-height: 135%;
+  margin: 69px 0;
+}
+.video-frag{
+  width: 100%;
+  height: 500px;
 }
 video {
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 .review-list {
   display: flex;
@@ -58,6 +70,31 @@ video {
 }
 .review-item {
   width: 570px;
-  height: 350px;
-  background-color: blanchedalmond;
+  height: 672px;
+  background-color: rgba(242, 242, 242, 1);
+  padding: 50px 61px 110px 46px;
+}
+.review-item h4 {
+  font-size: 24px;
+  line-height: 135%;
+}
+.review-item-header{
+  display: flex;
+  flex-direction: column;
+  gap: 18.06px;
+}
+.review-item p{
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 400;
+}
+@media (max-width:1530px) {
+  
+}
+@media (max-width:1250px) {
+  .review-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
 }

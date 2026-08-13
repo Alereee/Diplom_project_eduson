@@ -54,12 +54,16 @@ for (let item of configFilter) {
         dynamicRanges.push([`от ${min} до ${max}`, `${min}-${max}`]);
       } 
     }
-    // console.log(dynamicRanges);
     optionSelect(selectElement, dynamicRanges, item.optionsDefault);
   } else {
     const uniqueValues = [
       ...new Set(moviesConfig.map((movie) => movie[key])),
-    ].sort((a, b) => (typeof a === "number" ? b - a : a.localeCompare(b)));
+    ].sort((a, b) => {
+      if (typeof a === "number" && typeof b === "number") {
+        return b - a; 
+      }
+      return String(a).localeCompare(String(b));
+    });
 
     optionSelect(selectElement, uniqueValues, item.optionsDefault);
   }

@@ -42,7 +42,7 @@ header {
 }
 .wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1274px;
   flex-grow: 1;
 }
 nav {
@@ -109,14 +109,14 @@ p {
 }
 .movie-list {
   margin: 50px auto;
-  max-width: 1350px;
+  max-width: 1415px;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
 .wrapper-movies {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1274px;
   overflow: hidden;
 }
 .movies-slider {
@@ -136,9 +136,13 @@ p {
   flex-shrink: 0;
   align-self: center;
   height: auto;
+  position: absolute;
 }
 .arrow-left {
   transform: rotate(180deg);
+}
+.arrow-right {
+  right: 0;
 }
 .arrow-left:hover,
 .arrow-right:hover {
@@ -299,4 +303,19 @@ footer {
   color: #ffffff;
   font-size: 1.5rem;
   padding-left: 20px;
+}
+@media (max-width:1530px) {
+  .search-input__content {
+    padding: 0 20px;
+  }
+}
+@media (max-width:1320px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
+@media (max-width:1290px) {
+  .movie-card-podrobnee-params {
+    flex-direction: column;
+  }
 }
