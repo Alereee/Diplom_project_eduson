@@ -1,10 +1,16 @@
+function getScrollAmount() {
+  return (
+    document.querySelector(".fragments-contanier .movie-card") ||
+    document.querySelector(".movie-card")
+  );
+}
 const moveSlider = (direction) => {
+  const card = getScrollAmount();
+  const cardWidth = card.offsetWidth;
   const scrollAmount =
-    parseFloat(
-      window.getComputedStyle(document.querySelector(".movie-card")).width,
-    ) + parseFloat(window.getComputedStyle(sliderTrack).gap);
+    parseFloat(cardWidth) +
+    parseFloat(window.getComputedStyle(sliderTrack).gap);
   let targetScroll = sliderTrack.scrollLeft + direction * scrollAmount;
-  console.log(targetScroll);
   sliderTrack.scrollTo({
     left: targetScroll,
     behavior: "smooth",

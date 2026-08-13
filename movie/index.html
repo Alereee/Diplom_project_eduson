@@ -62,48 +62,21 @@
           </div>
         </div>
       </section>
-      <section class="wrapper">
+      <section class="wrapper-pod">
         <div class="opisi">
           <div class="movie-title-contanier">
-            <div class="movie-card"></div>
-            <div class="movie-card-podrobnee">
-              <!-- <h2></h2>
-              <p>О фильме</p>
-              <div class="movie-card-podrobnee-params">
-                <label>Жанр</label>
-                <p></p>
-              </div>
-              <div class="movie-card-podrobnee-params">
-                <label>Страна производства</label>
-                <p></p>
-              </div>
-              <div class="movie-card-podrobnee-params">
-                <label>Актеры</label>
-                <p></p>
-              </div>
-              <div class="movie-card-podrobnee-params">
-                <label>Режиссёры</label>
-                <p></p>
-              </div>
-              <div class="movie-card-podrobnee-params">
-                <label>Дата релиза</label>
-                <p></p>
-              </div>
-              <div class="movie-card-podrobnee-params">
-                <label>Возврастное ограничение</label>
-                <p></p>
-              </div> -->
-            </div>
+            <div class="movie-card movie-card-image"></div>
+            <div class="movie-card-podrobnee"></div>
           </div>
         </div>
-        <div class="fragments">
+        <div class="wrapper">
           <h3>Трейлер</h3>
           <video src="" controls></video>
         </div>
       </section>
       <section class="fragments-contanier">
         <div class="fragments wrapper">
-          <p>Кадры из фильма</p>
+          <h3>Кадры из фильма</h3>
         </div>
         <div class="movie-list">
           <button class="arrow-left disabled" onclick="moveSlider(-1)">
@@ -115,6 +88,12 @@
           <button class="arrow-right" onclick="moveSlider(1)">
             <img src="../assets/arrow-right-black.svg" alt="arrow-right" />
           </button>
+        </div>
+      </section>
+      <section>
+        <div class="wrapper">
+          <h3>Рецензии зрителей</h3>
+          <div class="review-list"></div>
         </div>
       </section>
     </main>
@@ -170,4 +149,6 @@
   <script src="../script/config-movies.js" type="module"></script>
   <script src="../script/slider-main.js"></script>
   <script src="../script/movie-page.js" type="module"></script>
+  <script src="../script/colorRatingDiapazon.js" type="module"></script>
+  <script src="../script/card-movie.js" type="module"></script>
 </html>

@@ -1,3 +1,63 @@
 .fragments-contanier .movie-card {
   width: 570px !important;
 }
+.wrapper-pod {
+  margin: 0 auto;
+  max-width: 1350px;
+}
+.movie-title-contanier {
+  margin-top: 100px;
+  display: flex;
+  gap: 200px;
+}
+.movie-card-image {
+  margin-left: 37px;
+  cursor: none;
+}
+.movie-card-podrobnee {
+  width: 100%;
+}
+.movie-card-podrobnee h2 {
+  margin-bottom: 50px;
+  font-size: 48px;
+}
+.movie-card-image {
+  /* height: 300px; */
+}
+.movie-card-podrobnee h3 {
+  margin-bottom: 50px;
+  /* font-size: 32px; */
+}
+.movie-card-podrobnee-params {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.movie-card-podrobnee-params label {
+  color: darkgrey;
+  font-size: 16px !important;
+  width: 300px;
+}
+.movie-card-podrobnee-params p {
+  width: 350px;
+  font-size: 16px !important;
+  margin-bottom: 0;
+  line-height: 20px;
+}
+h3 {
+  font-size: 32px;
+}
+video {
+  width: 100%;
+  height: 500px;
+}
+.review-list {
+  display: flex;
+  justify-content: space-between;
+}
+.review-item {
+  width: 570px;
+  height: 350px;
+  background-color: blanchedalmond;
+}
