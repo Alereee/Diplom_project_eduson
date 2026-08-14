@@ -23,5 +23,6 @@ export function createMovieCard(movie) {
     </div>
   `;
   movieCard.href = `../movie/index.html?title=${movie.title[1]}`;
+  // console.log(movieCard);
   return movieCard;
 }

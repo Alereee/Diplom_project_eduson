@@ -22,7 +22,6 @@ export const filterMovies = () => {
     }
     if (activeFilters.rating) {
       const [min, max] = activeFilters.rating.split("-").map(Number);
-      // console.log( max);
       const currentRating = Number(movie.rating);
       if (currentRating < min || currentRating > max) {
         return false;

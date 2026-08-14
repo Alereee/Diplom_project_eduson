@@ -4,10 +4,15 @@
   width: 100%;
   gap: 20px;
 }
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 aside {
   display: flex;
   flex-direction: column;
   width: 438px;
+  flex-shrink: 0;
   gap: 20px;
   box-sizing: border-box;
   background-color: #fff;
@@ -70,7 +75,7 @@ select {
 }
 .main-content {
   flex-grow: 1;
-  max-width: 1200px;
+  max-width: 1274px;
   margin: 111px auto 0 auto;
 }
 .main-content-title {
@@ -93,5 +98,11 @@ select {
 .main-content-movies {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 20px;
+  padding: 20px 0;
+}
+@media screen and (max-width: 1775px) {
+  .main-content-movies {
+  }
 }

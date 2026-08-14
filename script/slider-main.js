@@ -22,7 +22,7 @@ const moveSlider = (direction) => {
   }
   if (targetScroll > 0)
     document.querySelector(".arrow-left").classList.remove("disabled");
-  if (targetScroll - 10 < sliderTrack.scrollWidth - sliderTrack.clientWidth)
+  if (targetScroll < sliderTrack.scrollWidth - sliderTrack.clientWidth)
     document.querySelector(".arrow-right").classList.remove("disabled");
 
   if (targetScroll >= sliderTrack.scrollWidth - sliderTrack.clientWidth)
