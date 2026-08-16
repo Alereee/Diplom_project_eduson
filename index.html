@@ -10,16 +10,34 @@
     <link rel="stylesheet" href="style/fonts.css" />
   </head>
   <body>
+    <div class="burger-menu-none ">
+      <nav>
+        <ul>
+          <li>
+            <div class="nav-li nav-li-menu">
+              <a href="movie_list/index.html">Фильмы</a>
+              <a href="series_list/index.html">Сериалы</a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-li nav-li-theme">
+              <p>Тёмная тема</p>
+              <div class="theme-switch">                
+                <div class="switch"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <header>
       <div class="wrapper">
         <nav>
           <ul>
             <li>
-              <div>
-                <a href="./index.html">
-                  <img src="assets/logo.svg" alt="logo" />
-                </a>
-              </div>
+              <a href="./index.html">
+                <img src="assets/logo.svg" alt="logo" />
+              </a>
             </li>
             <li>
               <div class="nav-li nav-li-menu">
@@ -35,6 +53,11 @@
                 </div>
               </div>
             </li>
+            <li>
+              <div class="nav-li nav-li-search burger-menu">
+                <img src="assets/burger-menu.svg" alt="burger-menu" />
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
@@ -43,6 +66,9 @@
       <section class="space-hero">
         <div class="space-hero__content wrapper">
           <h1>Что сегодня посмотреть?</h1>
+          <button class="arrow-nav-mobile">
+            <img src="assets/arrow-nav-mobile.svg" alt="arrow-nav-mobile" />
+          </button>
         </div>
         <img
           src="assets/sec-1-back.png"
@@ -52,13 +78,15 @@
       </section>
       <section class="movie-list">
         <button class="arrow-left disabled" onclick="moveSlider(-1)">
-          <img src="assets/arrow-right-black.svg" alt="arrow-left" />
+          <img src="assets/arrow-right-black.svg" alt="arrow-left" class="arrow-dekstop"/>
+          <img src="assets/arrow-slider-mobile-black.svg" alt="arrow-slider-mobile" class="arrow-slider-mobile"/>
         </button>
         <div class="wrapper-movies">
           <div class="movies-slider"></div>
         </div>
         <button class="arrow-right" onclick="moveSlider(1)">
-          <img src="assets/arrow-right-black.svg" alt="arrow-right" />
+          <img src="assets/arrow-right-black.svg" alt="arrow-right" class="arrow-dekstop"/>
+          <img src="assets/arrow-slider-mobile-black.svg" alt="arrow-slider-mobile-black" class="arrow-slider-mobile"/>
         </button>
       </section>
       <section class="search">
@@ -131,4 +159,5 @@
   <script src="script/config-movies.js" type="module"></script>
   <script src="script/slider-main.js"></script>
   <script src="script/theme-switcher.js" defer></script>
+  <script src="script/burger-menu.js" defer></script>
 </html>

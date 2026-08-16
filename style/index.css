@@ -31,7 +31,9 @@
   z-index: 3;
   padding: 40px;
 }
-
+.arrow-nav-mobile{
+  display: none;
+}
 .space-hero h1 {
   color: #ffffff;
   max-width: 611px;
@@ -91,4 +93,47 @@
 .sec-pod-content-div p {
   font-size: 24px;
   width: 820px;
+}
+@media (max-width: 1000px) {
+  .space-hero::after{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 52.68%, rgba(0, 0, 0, 0) 67.11%, #000000 82.02%);
+  }
+  .section-bg-img{
+    width: 100%;
+  }
+  .space-hero__content{
+    position: absolute!important;
+    bottom: 0;
+    padding: 0!important;
+    width: 100%;
+  }
+  .space-hero__content h1{
+     padding: 0 0 36px 30px;
+  }
+}
+@media (max-width: 800px) {
+  .arrow-nav-mobile{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .space-hero h1{
+    font-size: 36px;
+  }
+  .space-hero__content h1{
+    padding: 0 0 36px 30px;
+  }
+  .arrow-nav-mobile img{
+    padding-bottom: 25px;
+  }
+  .sec-pod{
+    height: 584px;
+  }
+  .sec-pod-content-div h1 {
+    font-size: 26px;
+    line-height: 120%;
+  }
+  .sec-pod-content-div p{
+    font-size: 18px;
+  }
 }
