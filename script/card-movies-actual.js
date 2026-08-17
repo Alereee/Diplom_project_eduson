@@ -3,11 +3,9 @@ import { createMovieCard } from "./card-movie.js";
 
 const PER_PAGE = 9;
 const getCurrentPageFromUrl = () => {
-  // console.log(window.location.hash);
   const hash = window.location.hash;
   const params = new URLSearchParams(hash.replace("#", ""));
   const page = Number(params.get("page"));
-  console.log(page);
   return page && page > 0 ? page : 1;
 };
 let currentPage = getCurrentPageFromUrl();
@@ -22,6 +20,7 @@ function renderNavigation(totalMovies) {
   navListMovie.innerHTML = "";
   const totalPages = Math.ceil(totalMovies / PER_PAGE);
   for (let i = 1; i <= totalPages; i++) {
+    if(totalPages ===1) continue;
     const a = document.createElement("a");
     a.textContent = i;
     a.id = i;
@@ -29,7 +28,6 @@ function renderNavigation(totalMovies) {
       a.classList.add("active");
     }
     a.href = `?page=${i}`;
-    console.log(a.href);
     navListMovie.appendChild(a);
   }
 }
@@ -52,6 +50,7 @@ navListMovie.addEventListener("click", (e) => {
 });
 window.addEventListener("popstate", () => {
   currentPage = getCurrentPageFromUrl();
+  window.location.replace('./index.html'); 
   renderMovies();
 });
 

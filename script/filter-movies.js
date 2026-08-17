@@ -11,14 +11,14 @@ export const filterMovies = () => {
     if (activeFilters.genre && movie.genre !== activeFilters.genre) {
       return false;
     }
-    if (activeFilters.country && movie.country !== activeFilters.country) {
+    if (activeFilters.country && !movie.country.includes(activeFilters.country)) {
       return false;
     }
-    if (
-      activeFilters.year &&
-      String(movie.year) !== String(activeFilters.year)
-    ) {
-      return false;
+    if (activeFilters.releaseDate) {
+      const movieYear = movie.releaseDate ? String(movie.releaseDate.slice(0, 4)) : "";
+      if (movieYear !== activeFilters.releaseDate) {
+        return false;
+      }
     }
     if (activeFilters.rating) {
       const [min, max] = activeFilters.rating.split("-").map(Number);

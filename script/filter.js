@@ -14,7 +14,7 @@ export const configFilter = [
     optionsDefault: "Все страны",
   },
   {
-    year: document.querySelector("[name='year']"),
+    releaseDate: document.querySelector("[name='year']"),
     optionsDefault: "Все годы",
   },
 ];
@@ -57,14 +57,19 @@ for (let item of configFilter) {
     optionSelect(selectElement, dynamicRanges, item.optionsDefault);
   } else {
     const uniqueValues = [
-      ...new Set(moviesConfig.map((movie) => movie[key])),
+      ...new Set(moviesConfig.flatMap((movie) => {
+        let values =  movie[key];
+        if(key === "releaseDate"){
+          values = values.slice(0, 4);
+        }
+        return Array.isArray(values) ? values : [values];
+      })),
     ].sort((a, b) => {
-      if (typeof a === "number" && typeof b === "number") {
+      if (!isNaN(b) && !isNaN(a)) {
         return b - a; 
       }
       return String(a).localeCompare(String(b));
     });
-
     optionSelect(selectElement, uniqueValues, item.optionsDefault);
   }
 }

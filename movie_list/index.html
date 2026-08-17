@@ -93,6 +93,7 @@
       </section>
       <section class="main-films container">
         <aside>
+          <h2>Фильмы</h2>
           <form>
             <div class="aside-lab">
               <label>Жанр</label>
@@ -125,7 +126,35 @@
             <h2>Фильмы</h2>
             <div class="main-content-nav"></div>
           </div>
-          <div class="main-content-movies"></div>
+          <div class="main-content-movies movie-list">
+            <button class="arrow-left disabled" onclick="moveSlider(-1)">
+              <img
+                src="../assets/arrow-right-black.svg"
+                alt="arrow-left"
+                class="arrow-dekstop"
+              />
+              <img
+                src="assets/arrow-slider-mobile-black.svg"
+                alt="arrow-slider-mobile"
+                class="arrow-slider-mobile"
+              />
+            </button>
+            <div class="wrapper-slider">
+              <div class="movies-slider"></div>
+            </div>
+            <button class="arrow-right" onclick="moveSlider(1)">
+              <img
+                src="../assets/arrow-right-black.svg"
+                alt="arrow-right"
+                class="arrow-dekstop"
+              />
+              <img
+                src="../assets/arrow-slider-mobile-black.svg"
+                alt="arrow-slider-mobile"
+                class="arrow-slider-mobile"
+              />
+            </button>
+          </div>
         </div>
       </section>
     </main>

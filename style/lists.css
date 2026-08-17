@@ -20,6 +20,9 @@ aside {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   padding: 40px;
 }
+aside h2 {
+  display: none;
+}
 form {
   margin-top: 112px;
   display: flex;
@@ -71,13 +74,12 @@ select {
   transition: transform 0.3s ease;
 }
 .select-container:hover::after {
-  /* color:blue; */
   transform: translateY(-50%) rotate(180deg);
 }
 .main-content {
   flex-grow: 1;
   max-width: 1135px;
-  margin-top: 111px;
+  padding: 111px 0 147px 25px;
 }
 .main-content-title {
   width: 100%;
@@ -85,7 +87,7 @@ select {
   justify-content: space-between;
   align-items: center;
 }
-.main-content-title h2 {
+h2 {
   font-size: 64px;
   font-weight: 600;
 }
@@ -106,8 +108,12 @@ select {
 .main-content-movies .movie-card {
   width: 350px;
 }
-.main-content-nav a:hover {
+.main-content-nav a {
   opacity: 0.5;
+  font-size: 24px;
+}
+.main-content-nav a:hover {
+  opacity: 1;
 }
 .main-content-nav a.active {
   opacity: 1;
@@ -126,5 +132,37 @@ select {
     flex-grow: 1;
     max-width: 1274px;
     margin: 0 auto;
+  }
+  form{
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 1320px) {
+  .main-content{
+    width: 100%;
+    padding: 111px 20px 147px 20px;
+  }
+}
+@media screen and (max-width: 1165px) {
+  .main-content-movies{
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main-content-title{
+    display: none;
+  }
+  aside h2 {
+    display: block;
+    font-size: 36px;
+  }
+  .main-content-movies a{
+    flex: 0 0 100%;
+  }
+  .main-content-movies .movie-card {
+    width: 100%;
+  }
+  aside label{
+    font-size: 24px;
   }
 }
