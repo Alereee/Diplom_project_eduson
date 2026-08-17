@@ -9,21 +9,42 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="burger-menu-none">
+      <button>
+        <img src="../assets/close-burger-black.svg" />
+      </button>
+      <nav>
+        <ul>
+          <li>
+            <div class="nav-li nav-li-menu">
+              <a href="movie_list/index.html">Фильмы</a>
+              <a href="series_list/index.html">Сериалы</a>
+            </div>
+          </li>
+          <li>
+            <div class="nav-li nav-li-theme">
+              <p>Тёмная тема</p>
+              <div class="theme-switch">
+                <div class="switch"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <header>
       <div class="wrapper">
         <nav>
           <ul>
             <li>
-              <div class="nav-li">
-                <a href="../index.html">
-                  <img src="../assets/logo.svg" alt="logo" />
-                </a>
-              </div>
+              <a href="../index.html">
+                <img src="../assets/logo.svg" alt="logo" />
+              </a>
             </li>
             <li>
               <div class="nav-li nav-li-menu">
                 <a href="../movie_list/index.html">Фильмы</a>
-                <a href="../series/index.html">/Сериалы</a>
+                <a href="../series_list/index.html">Сериалы</a>
               </div>
             </li>
             <li>
@@ -32,6 +53,11 @@
                 <div class="theme-switch">
                   <div class="switch"></div>
                 </div>
+              </div>
+            </li>
+            <li class="burger-menu">
+              <div class="nav-li nav-li-search burger-menu">
+                <img src="../assets/burger-menu.svg" alt="burger-menu" />
               </div>
             </li>
           </ul>
@@ -71,8 +97,7 @@
         </div>
         <div class="wrapper">
           <h3>Трейлер</h3>
-          <div class="video-frag">
-          </div>
+          <div class="video-frag"></div>
         </div>
       </section>
       <section class="fragments-contanier">
@@ -152,4 +177,5 @@
   <script src="../script/movie-page.js" type="module"></script>
   <script src="../script/colorRatingDiapazon.js" type="module"></script>
   <script src="../script/card-movie.js" type="module"></script>
+  <script src="../script/burger-menu.js" defer></script>
 </html>

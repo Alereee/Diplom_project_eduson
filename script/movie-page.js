@@ -4,13 +4,12 @@ import { moviesConfig } from "./config-movies-films.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("title");
-const movie = 
-  configMovies.find(m => m.title[1] === movieId) ||
-  moviesConfig.find(m => m.title[1] === movieId);
-const correctMoviePoster = `.${movie.poster}`;
+const movie =
+  configMovies.find((m) => m.title[1] === movieId) ||
+  moviesConfig.find((m) => m.title[1] === movieId);
 const movieCard = document.querySelector(".movie-card");
 movieCard.innerHTML = `
-  <div class="movie-card movie-card-image" style="background-image: url(${correctMoviePoster}); background-position: center; background-size: cover; ">
+  <div class="movie-card movie-card-image" style="background-image: url(${movie.poster}); background-position: center; background-size: cover; ">
     <div class="movie-rating" style="background-color: ${getDynamicColor(movie.rating)}">
         <p>${movie.rating}</p>
     </div>
@@ -58,14 +57,14 @@ videoFrag.innerHTML = `
 const getRatingStar = (rating) => {
   const ratingConstStar = 10;
   let ratingStar = "";
-  for(let i = 0; i < rating; i++) {
+  for (let i = 0; i < rating; i++) {
     ratingStar += `<img src="../assets/star-black.svg" alt="star">`;
   }
-  for(let i = rating; i < ratingConstStar; i++) {
+  for (let i = rating; i < ratingConstStar; i++) {
     ratingStar += `<img src="../assets/star.svg" alt="star">`;
   }
   return ratingStar;
-}
+};
 const revievList = document.querySelector(".review-list");
 movie.reviews.forEach((review) => {
   revievList.innerHTML += `
