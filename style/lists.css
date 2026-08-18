@@ -98,7 +98,7 @@ h2 {
 .main-content-nav button {
   font-size: 30px;
 }
-.main-content-movies {
+.main-content-movies .movies-slider {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -129,40 +129,62 @@ h2 {
     width: 100%;
   }
   .main-content {
+    width: 100%;
     flex-grow: 1;
     max-width: 1274px;
     margin: 0 auto;
   }
-  form{
+  form {
     margin-top: 0px;
   }
 }
 @media screen and (max-width: 1320px) {
-  .main-content{
+  .main-content {
     width: 100%;
     padding: 111px 20px 147px 20px;
   }
 }
 @media screen and (max-width: 1165px) {
-  .main-content-movies{
+  .main-content-movies .movies-slider {
     justify-content: space-around;
   }
 }
 @media screen and (max-width: 800px) {
-  .main-content-title{
+  .main-content-movies .movies-slider {
+    flex-wrap: nowrap;
+  }
+  .main-content {
+    padding: 0;
+  }
+  .main-content-title {
     display: none;
+  }
+  .movie-list {
+    padding: 0;
+    max-width: 100% !important;
   }
   aside h2 {
     display: block;
     font-size: 36px;
   }
-  .main-content-movies a{
+  .main-content-movies a {
     flex: 0 0 100%;
+    height: 100%;
   }
-  .main-content-movies .movie-card {
+  .wrapper-movies {
     width: 100%;
+    max-width: none;
   }
-  aside label{
+  .wrapper-movies .movie-card {
+    width: auto;
+  }
+  aside label {
     font-size: 24px;
+  }
+  .main-content-movies {
+    flex-wrap: nowrap;
+  }
+  .movie-list button {
+    padding: 0 10px;
   }
 }

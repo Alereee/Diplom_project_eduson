@@ -2,6 +2,7 @@ document.querySelector(".burger-menu").addEventListener("click", () => {
   document
     .querySelector(".burger-menu-none")
     .classList.toggle("burger-menu-active");
+  document.body.style.overflow = "hidden";
 });
 document
   .querySelector(".burger-menu-none button")
@@ -9,4 +10,5 @@ document
     document
       .querySelector(".burger-menu-none")
       .classList.toggle("burger-menu-active");
+    document.body.style.overflow = "auto";
   });

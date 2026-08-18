@@ -126,31 +126,23 @@
             <h2>Фильмы</h2>
             <div class="main-content-nav"></div>
           </div>
-          <div class="main-content-movies movie-list">
+          <div class="movie-list">
             <button class="arrow-left disabled" onclick="moveSlider(-1)">
               <img
-                src="../assets/arrow-right-black.svg"
-                alt="arrow-left"
-                class="arrow-dekstop"
-              />
-              <img
-                src="assets/arrow-slider-mobile-black.svg"
+                src="../assets/arrow-slider-mobile-black.svg"
                 alt="arrow-slider-mobile"
                 class="arrow-slider-mobile"
               />
             </button>
-            <div class="wrapper-slider">
-              <div class="movies-slider"></div>
+            <div class="main-content-movies wrapper-movies">
+              <div class="movies-slider">
+                <div class="movie-card"></div>
+              </div>
             </div>
             <button class="arrow-right" onclick="moveSlider(1)">
               <img
-                src="../assets/arrow-right-black.svg"
-                alt="arrow-right"
-                class="arrow-dekstop"
-              />
-              <img
                 src="../assets/arrow-slider-mobile-black.svg"
-                alt="arrow-slider-mobile"
+                alt="arrow-slider-mobile-black"
                 class="arrow-slider-mobile"
               />
             </button>
@@ -212,4 +204,5 @@
   <script src="../script/filter-movies.js" type="module" defer></script>
   <script src="../script/card-movies-actual.js" type="module" defer></script>
   <script src="../script/burger-menu.js" defer></script>
+  <script src="../script/slider-main.js" defer></script>
 </html>

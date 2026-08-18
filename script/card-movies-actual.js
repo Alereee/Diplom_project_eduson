@@ -20,7 +20,7 @@ function renderNavigation(totalMovies) {
   navListMovie.innerHTML = "";
   const totalPages = Math.ceil(totalMovies / PER_PAGE);
   for (let i = 1; i <= totalPages; i++) {
-    if(totalPages ===1) continue;
+    if (totalPages === 1) continue;
     const a = document.createElement("a");
     a.textContent = i;
     a.id = i;
@@ -33,11 +33,22 @@ function renderNavigation(totalMovies) {
 }
 function renderMovies() {
   const moviesList = filterMovies();
-  renderNavigation(moviesList.length);
-  const movies = getTabulMovies(moviesList, currentPage);
-  const container = document.querySelector(".main-content-movies");
+  let movies = [];
+  let movieBoll = true;
+  if (window.innerWidth < 800) {
+    movieBoll = false;
+    movies = moviesList;
+  } else if (window.innerWidth >= 800) {
+    renderNavigation(moviesList.length);
+    movies = getTabulMovies(moviesList, currentPage);
+    movieBoll = true;
+  }
+  const container = document.querySelector(".movies-slider");
   container.innerHTML = "";
-  movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
+  if (movieBoll) {
+    movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
+  } else
+    movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
 }
 window.renderMovies = renderMovies;
 navListMovie.addEventListener("click", (e) => {
@@ -50,8 +61,9 @@ navListMovie.addEventListener("click", (e) => {
 });
 window.addEventListener("popstate", () => {
   currentPage = getCurrentPageFromUrl();
-  window.location.replace('./index.html'); 
+  window.location.replace("./index.html");
   renderMovies();
 });
-
+getCurrentPageFromUrl();
 renderMovies();
+window.addEventListener("resize", renderMovies);
