@@ -351,11 +351,6 @@ footer {
     padding: 0 20px;
   }
 }
-@media (max-width: 1290px) {
-  .movie-card-podrobnee-params {
-    flex-direction: column;
-  }
-}
 @media (max-width: 1200px) {
   .movie-list {
     max-width: 1000px;
@@ -384,7 +379,7 @@ footer {
     gap: 20px;
   }
 }
-@media (max-width: 877px) {
+@media (max-width: 801px) {
   .burger-menu {
     display: flex;
   }
@@ -426,6 +421,7 @@ footer {
   .burger-menu-active nav ul {
     flex-direction: column;
     height: 100%;
+    padding-bottom: 35px;
   }
   .burger-menu-active .nav-li {
     display: flex;
@@ -564,5 +560,18 @@ footer {
   }
   .movie-list button {
     padding: 0 5px;
+  }
+}
+@media (max-width: 420px) {
+  ul li a img {
+    width: 217px;
+    height: 47px;
+  }
+}
+@media (max-width: 365px) {
+  .search-input__btn {
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
   }
 }

@@ -52,21 +52,23 @@ for (let item of configFilter) {
 
       if (hasMovies) {
         dynamicRanges.push([`от ${min} до ${max}`, `${min}-${max}`]);
-      } 
+      }
     }
     optionSelect(selectElement, dynamicRanges, item.optionsDefault);
   } else {
     const uniqueValues = [
-      ...new Set(moviesConfig.flatMap((movie) => {
-        let values =  movie[key];
-        if(key === "releaseDate"){
-          values = values.slice(0, 4);
-        }
-        return Array.isArray(values) ? values : [values];
-      })),
+      ...new Set(
+        moviesConfig.flatMap((movie) => {
+          let values = movie[key];
+          if (key === "releaseDate") {
+            values = values.slice(0, 4);
+          }
+          return Array.isArray(values) ? values : [values];
+        }),
+      ),
     ].sort((a, b) => {
       if (!isNaN(b) && !isNaN(a)) {
-        return b - a; 
+        return b - a;
       }
       return String(a).localeCompare(String(b));
     });
