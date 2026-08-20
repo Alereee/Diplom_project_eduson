@@ -1,0 +1,29 @@
+:root {
+  /* Основные цвета */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Цвета фона */
+  --background-light: rgba(
+    242,
+    242,
+    242,
+    1
+  ); /* Светлый фон, часто используется */
+  --background-dark: #000000; /* Темный фон */
+  --background-white: #fff; /* Белый фон */
+
+  /* Цвета текста */
+  --text-dark: rgba(104, 104, 104, 1); /* Темный текст */
+  --text-light: #ffffff; /* Светлый текст */
+  --text-black: #000; /* Черный текст */
+
+  /* Акцентные цвета / Градиенты */
+  --accent-purple: rgba(129, 0, 255, 1); /* Фиолетовый акцент */
+  --accent-orange: rgba(255, 92, 0, 1); /* Оранжевый акцент */
+
+  /* Прозрачные цвета */
+  --transparent-black-light: rgba(0, 0, 0, 0.1); /* Легкий прозрачный черный */
+  --transparent-black-full: rgba(0, 0, 0, 0); /* Полностью прозрачный черный */
+  --transparent-black-medium: rgba(1, 1, 1, 1); /* Почти черный, но с rgba */
+}
