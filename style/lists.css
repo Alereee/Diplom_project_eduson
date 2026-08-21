@@ -165,7 +165,7 @@ h2 {
   }
   aside h2 {
     display: block;
-    font-size: var(--font-size-6xl);
+    font-size: var(--font-size-5xl);
   }
   .main-content-movies a {
     flex: 0 0 100%;
@@ -179,7 +179,11 @@ h2 {
     width: auto;
   }
   aside label {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-lg);
+  }
+  select {
+    height: 50px;
+    font-size: var(--font-size-md);
   }
   .main-content-movies {
     flex-wrap: nowrap;
