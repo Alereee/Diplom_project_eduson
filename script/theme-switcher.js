@@ -31,7 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const isDarkTheme = localStorage.getItem("theme-switch") === "true";
+  body.classList.add("no-transition");
   setTheme(isDarkTheme);
+  setTimeout(() => {
+    body.classList.remove("no-transition");
+  }, 100);
 
   themeSwitchers.forEach((themeSwitcher) => {
     themeSwitcher.addEventListener("click", () => {

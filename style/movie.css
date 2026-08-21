@@ -118,17 +118,36 @@ video {
     height: auto;
   }
 }
+@media (max-width: 800px) {
+  .movie-card-podrobnee h2 {
+    font-size: var(--font-size-7xl);
+  }
+  .movie-card-podrobnee h3 {
+    font-size: var(--font-size-5xl);
+  }
+  .movie-card-podrobnee-params label,
+  .movie-card-podrobnee-params p {
+    font-size: var(--font-size-xl) !important;
+  }
+  .review-item h4 {
+    font-size: var(--font-size-xl);
+  }
+  .review-item p {
+    font-size: var(--font-size-md);
+  }
+}
 @media (max-width: 700px) {
   .movie-card-podrobnee-params {
     flex-direction: column;
+    align-items: start;
   }
   .movie-card-podrobnee-params label {
-    text-align: center;
+    text-align: start;
     width: 100%;
   }
   .movie-card-podrobnee-params p {
     width: 100%;
-    text-align: center;
+    text-align: start;
   }
   .review-list {
     flex-direction: column;
@@ -139,5 +158,8 @@ video {
   }
   .movie-card-image {
     width: 100% !important;
+  }
+  .movie-card-podrobnee h3 {
+    text-align: start;
   }
 }

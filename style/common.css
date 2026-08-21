@@ -99,6 +99,10 @@ p {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
+body.no-transition .theme-switch,
+body.no-transition .switch {
+  transition: none !important;
+}
 .switch {
   width: 24px;
   height: 24px;
@@ -498,6 +502,8 @@ footer {
   }
   .arrow-slider-mobile {
     display: block;
+    width: 20px;
+    height: 20px;
   }
   .arrow-left img {
     transform: rotate(0deg);
