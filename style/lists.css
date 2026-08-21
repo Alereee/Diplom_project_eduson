@@ -16,7 +16,7 @@ aside {
   flex-shrink: 0;
   gap: 20px;
   box-sizing: border-box;
-  background-color: var(--background-white);
+  background-color: var(--secondary-bg-color);
   box-shadow: 0 0 50px var(--transparent-black-light);
   padding: 40px;
 }
@@ -49,8 +49,8 @@ select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: var(--background-light);
-  color: var(--text-dark);
+  background-color: var(--select-bg-color);
+  color: var(--main-text-color);
   height: 68px;
   font-size: var(--font-size-lg);
   width: 100%;

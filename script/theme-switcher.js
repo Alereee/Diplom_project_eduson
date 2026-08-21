@@ -1,49 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   const themeSwitchers = document.querySelectorAll(".theme-switch");
-  const isDarkTheme = localStorage.getItem("theme-switch") === "true";
-  let isDarkThemeActive = isDarkTheme;
-  themeSwitchers.forEach((themeSwitcher) => {
-    const switchElement = themeSwitcher.querySelector(".switch");
-    const currentText = themeSwitcher
-      .closest(".nav-li-theme")
-      ?.querySelector("p");
-    if (isDarkTheme) {
-      switchElement.classList.add("active");
-      if (currentText) {
-        currentText.textContent = "Светлая тема";
-      }
-      themeSwitcher.style.backgroundColor = "rgb(223, 221, 221)";
-      document.body.style.backgroundColor = "#000";
-      isDarkThemeActive = true;
+  const body = document.body;
+
+  const setTheme = (isDark) => {
+    if (isDark) {
+      body.classList.add("dark-theme");
     } else {
-      if (currentText) {
-        currentText.textContent = "Тёмная тема";
-      }
-      switchElement.classList.remove("active");
-      themeSwitcher.style.backgroundColor = "white";
-      document.body.style.backgroundColor = "#f2f2f2";
-      isDarkThemeActive = false;
+      body.classList.remove("dark-theme");
     }
-    themeSwitcher.addEventListener("click", () => {
-      if (currentText) {
-        currentText.textContent =
-          currentText.textContent.trim() === "Тёмная тема"
-            ? "Светлая тема"
-            : "Тёмная тема";
+    localStorage.setItem("theme-switch", isDark);
+
+    themeSwitchers.forEach((themeSwitcher) => {
+      const switchElement = themeSwitcher.querySelector(".switch");
+      const currentText = themeSwitcher
+        .closest(".nav-li-theme")
+        ?.querySelector("p");
+
+      if (isDark) {
+        switchElement.classList.add("active");
+        if (currentText) {
+          currentText.textContent = "Светлая тема";
+        }
+      } else {
+        switchElement.classList.remove("active");
+        if (currentText) {
+          currentText.textContent = "Тёмная тема";
+        }
       }
-      themeSwitcher.style.backgroundColor =
-        themeSwitcher.style.backgroundColor === "rgb(223, 221, 221)"
-          ? "white"
-          : "#dfdddd";
-      document.body.style.backgroundColor = isDarkThemeActive
-        ? "#f2f2f2"
-        : "#000";
-      isDarkThemeActive = !isDarkThemeActive;
-      switchElement.classList.toggle("active");
-      localStorage.setItem(
-        "theme-switch",
-        switchElement.classList.contains("active"),
-      );
+    });
+  };
+
+  const isDarkTheme = localStorage.getItem("theme-switch") === "true";
+  setTheme(isDarkTheme);
+
+  themeSwitchers.forEach((themeSwitcher) => {
+    themeSwitcher.addEventListener("click", () => {
+      const isDark = body.classList.contains("dark-theme");
+      setTheme(!isDark);
     });
   });
 });

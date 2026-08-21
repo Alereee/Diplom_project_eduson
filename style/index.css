@@ -4,7 +4,7 @@
   min-height: 650px;
   display: flex;
   align-items: center;
-  background-color: var(--color-black);
+  background-color: var(--main-bg-color);
 }
 
 .section-bg-img {
