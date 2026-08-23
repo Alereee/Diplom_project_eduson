@@ -27,4 +27,6 @@
   --line-height-md: 125%;
   --line-height-lg: 135%;
   --line-height-xl: 33px;
+  --select-bg-color: var(--background-light);
+  --font-size-h3: 28px;
 }

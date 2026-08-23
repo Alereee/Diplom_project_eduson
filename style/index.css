@@ -84,6 +84,9 @@
   justify-content: center;
   z-index: 3;
 }
+.space-hero__content__div{
+  display: none;
+}
 .sec-pod-content-div {
   display: flex;
   flex-direction: column;
@@ -131,10 +134,16 @@
   }
 }
 @media (max-width: 800px) {
+  .space-hero__content__div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
   .arrow-nav-mobile {
     display: flex;
-    width: 100%;
-    justify-content: center;
+  }
+  .arrow-nav-mobile:hover {
+    opacity: 0.5;
   }
   .space-hero h1 {
     font-size: var(--font-size-6xl);

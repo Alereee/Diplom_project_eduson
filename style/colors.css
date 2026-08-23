@@ -1,9 +1,10 @@
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
-  --background-light: rgba(242, 242, 242, 1);
+  --background-light: rgba(255, 255, 255, 1);
   --background-dark: #1a1a1a;
   --background-white: #fff;
+  --review-background-color: rgba(242, 242, 242, 1);
   --text-dark: rgba(104, 104, 104, 1);
   --text-light: #ffffff;
   --text-black: #000;

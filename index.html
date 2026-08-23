@@ -12,14 +12,14 @@
   <body>
     <div class="burger-menu-none">
       <button>
-        <img src="assets/close-burger-black.svg" />
+        <img src="assets/close-burger-black.svg" class="close-burger-theme"/>
       </button>
       <nav>
         <ul>
           <li>
             <div class="nav-li nav-li-menu">
-              <a href="movie_list/index.html">Фильмы</a>
-              <a href="series_list/index.html">Сериалы</a>
+              <a href="/movie_list/index.html">Фильмы</a>
+              <a href="/series_list/index.html">Сериалы</a>
             </div>
           </li>
           <li>
@@ -38,14 +38,14 @@
         <nav>
           <ul>
             <li>
-              <a href="./index.html">
+              <a href="/index.html">
                 <img src="assets/logo.svg" alt="logo" />
               </a>
             </li>
             <li>
               <div class="nav-li nav-li-menu">
-                <a href="movie_list/index.html">Фильмы</a>
-                <a href="series_list/index.html">Сериалы</a>
+                <a href="/movie_list/index.html">Фильмы</a>
+                <a href="/series_list/index.html">Сериалы</a>
               </div>
             </li>
             <li>
@@ -69,9 +69,11 @@
       <section class="space-hero">
         <div class="space-hero__content wrapper">
           <h1>Что сегодня посмотреть?</h1>
-          <button class="arrow-nav-mobile">
-            <img src="assets/arrow-nav-mobile.svg" alt="arrow-nav-mobile" />
-          </button>
+          <div class="space-hero__content__div">
+            <button class="arrow-nav-mobile">
+              <img src="assets/arrow-nav-mobile.svg" alt="arrow-nav-mobile" />
+            </button>
+          </div>  
         </div>
         <img
           src="assets/sec-1-back.png"
@@ -127,7 +129,7 @@
           </div>
         </div>
       </section>
-      <section class="sec-pod">
+      <section class="sec-pod" id="about">
         <img src="assets/sec-pod.png" alt="sec-pod" class="sec-pod-img" />
         <div class="sec-pod-content">
           <div class="sec-pod-content-div wrapper">
@@ -179,4 +181,12 @@
   <script src="script/slider-main.js"></script>
   <script src="script/theme-switcher.js" defer></script>
   <script src="script/burger-menu.js" defer></script>
+  <script>
+    const arrowNavMobile = document.querySelector('.arrow-nav-mobile');
+    arrowNavMobile.addEventListener('click', () => {
+      document.getElementById('about').scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  </script>
 </html>
