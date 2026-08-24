@@ -209,3 +209,8 @@ video {
     text-align: start;
   }
 }
+@media (max-width: 550px) {
+  .movies-slider a {
+    flex: 0 0 70%;
+  }
+}
