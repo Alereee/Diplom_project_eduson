@@ -5,6 +5,8 @@ function getScrollAmount() {
   );
 }
 const moveSlider = (direction) => {
+  let arrowLefts = document.querySelectorAll(".arrow-left");
+  let arrowRights = document.querySelectorAll(".arrow-right");
   const card = getScrollAmount();
   const cardWidth = card.offsetWidth;
   const scrollAmount =
@@ -15,17 +17,26 @@ const moveSlider = (direction) => {
     left: targetScroll,
     behavior: "smooth",
   });
+
+  const updateArrows = (arrows, condition, className) => {
+    arrows.forEach((arrow) => {
+      if (condition) {
+        arrow.classList.add(className);
+      } else {
+        arrow.classList.remove(className);
+      }
+    });
+  };
+
   if (targetScroll <= 10) {
-    document.querySelector(".arrow-left").classList.add("disabled");
     targetScroll = 0;
     sliderTrack.scrollLeft = 0;
   }
-  if (targetScroll > 0)
-    document.querySelector(".arrow-left").classList.remove("disabled");
-  if (targetScroll < sliderTrack.scrollWidth - sliderTrack.clientWidth)
-    document.querySelector(".arrow-right").classList.remove("disabled");
-
-  if (targetScroll >= sliderTrack.scrollWidth - sliderTrack.clientWidth)
-    document.querySelector(".arrow-right").classList.add("disabled");
+  updateArrows(arrowLefts, targetScroll <= 0, "disabled");
+  updateArrows(
+    arrowRights,
+    targetScroll >= sliderTrack.scrollWidth - sliderTrack.clientWidth,
+    "disabled",
+  );
 };
 const sliderTrack = document.querySelector(".movies-slider");

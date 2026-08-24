@@ -12,7 +12,10 @@
   <body>
     <div class="burger-menu-none">
       <button>
-        <img src="../assets/close-burger-black.svg" class="close-burger-theme"/>
+        <img
+          src="../assets/close-burger-black.svg"
+          class="close-burger-theme"
+        />
       </button>
       <nav>
         <ul>
@@ -103,7 +106,16 @@
       </section>
       <section class="fragments-contanier">
         <div class="fragments wrapper">
-          <h3>Кадры из фильма</h3>
+          <h3 class="dekstop">Кадры из фильма</h3>
+          <h3 class="mobile">Галерея</h3>
+          <div class="gallery-arrow">
+            <button class="arrow-left disabled" onclick="moveSlider(-1)">
+              <img src="../assets/arrow-black-mobile.svg" alt="arrow-left" />
+            </button>
+            <button class="arrow-right" onclick="moveSlider(1)">
+              <img src="../assets/arrow-black-mobile.svg" alt="arrow-right" />
+            </button>
+          </div>
         </div>
         <div class="movie-list">
           <button class="arrow-left disabled" onclick="moveSlider(-1)">
