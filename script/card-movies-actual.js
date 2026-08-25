@@ -1,5 +1,6 @@
 import { filterMovies } from "./filter-movies.js";
 import { createMovieCard } from "./card-movie.js";
+import dataPromise from "./path.js";
 
 const PER_PAGE = 9;
 const getCurrentPageFromUrl = () => {
@@ -10,6 +11,7 @@ const getCurrentPageFromUrl = () => {
 };
 let currentPage = getCurrentPageFromUrl();
 const navListMovie = document.querySelector(".main-content-nav");
+
 const getTabulMovies = (movies, id) => {
   const start = (id - 1) * PER_PAGE;
   const end = start + PER_PAGE;
@@ -31,6 +33,7 @@ function renderNavigation(totalMovies) {
     navListMovie.appendChild(a);
   }
 }
+
 function renderMovies() {
   const moviesList = filterMovies();
   let movies = [];
@@ -47,23 +50,29 @@ function renderMovies() {
   container.innerHTML = "";
   if (movieBoll) {
     movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
-  } else
+  } else {
     movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
-}
-window.renderMovies = renderMovies;
-navListMovie.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    e.preventDefault();
-    currentPage = Number(e.target.id);
-    history.pushState(null, "", `?page=${currentPage}`);
-    renderMovies();
   }
-});
-window.addEventListener("popstate", () => {
-  currentPage = getCurrentPageFromUrl();
-  window.location.replace("./index.html");
+}
+
+window.renderMovies = renderMovies;
+async function initializePage() {
+  await dataPromise;
   renderMovies();
-});
-getCurrentPageFromUrl();
-renderMovies();
-window.addEventListener("resize", renderMovies);
+  navListMovie.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      e.preventDefault();
+      currentPage = Number(e.target.id);
+      history.pushState(null, "", `?page=${currentPage}`);
+      renderMovies();
+    }
+  });
+
+  window.addEventListener("popstate", () => {
+    currentPage = getCurrentPageFromUrl();
+    renderMovies();
+  });
+
+  window.addEventListener("resize", renderMovies);
+}
+initializePage();

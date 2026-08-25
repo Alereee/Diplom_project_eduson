@@ -1,6 +1,5 @@
 import { colorThresholds } from "./colorRatingDiapazon.js";
-import { KinopoiskApi } from "./api.js";
-const kinopoiskApi = new KinopoiskApi();
+import dataPromise from "./path.js";
 
 export const configFilter = [
   {
@@ -20,7 +19,7 @@ export const configFilter = [
     optionsDefault: "Все годы",
   },
 ];
-const moviesFromApi = await kinopoiskApi.getMovieFilms();
+let moviesFromApi = [];
 const optionSelect = (select, array, defaultText) => {
   select.innerHTML = "";
   const defaultOption = document.createElement("option");
@@ -39,40 +38,49 @@ const optionSelect = (select, array, defaultText) => {
     select.appendChild(option);
   });
 };
-for (let item of configFilter) {
-  const key = Object.keys(item).find((k) => k !== "optionsDefault");
-  const selectElement = item[key];
+async function initializePage() {
+  const moviesFromApi = await dataPromise;
+  populateFilters(moviesFromApi);
+}
 
-  if (key === "rating") {
-    const dynamicRanges = [];
-    for (let [range] of colorThresholds) {
-      const [min, max] = range;
-      const hasMovies = moviesFromApi.some((movie) => {
-        const r = Number(movie.ratingKinopoisk);
-        return r >= min && r <= max;
+function populateFilters(movies) {
+  for (let item of configFilter) {
+    const key = Object.keys(item).find((k) => k !== "optionsDefault");
+    const selectElement = item[key];
+
+    if (key === "rating") {
+      const dynamicRanges = [];
+      for (let [range] of colorThresholds) {
+        const [min, max] = range;
+        // Теперь мы работаем с актуальным массивом 'movies'
+        const hasMovies = movies.some((movie) => {
+          const r = Number(movie.ratingKinopoisk);
+          return r >= min && r <= max;
+        });
+
+        if (hasMovies) {
+          dynamicRanges.push([`от ${min} до ${max}`, `${min}-${max}`]);
+        }
+      }
+      optionSelect(selectElement, dynamicRanges, item.optionsDefault);
+    } else {
+      const uniqueValues = [
+        ...new Set(
+          movies.flatMap((movie) => {
+            if (key === 'genres' || key === 'countries') {
+              return movie[key].map(val => val[key.slice(0, -1)]); // 'genres' -> 'genre', 'countries' -> 'country'
+            }
+            return movie[key];
+          })
+        ),
+      ].sort((a, b) => {
+        if (!isNaN(b) && !isNaN(a)) {
+          return b - a;
+        }
+        return String(a).localeCompare(String(b));
       });
-
-      if (hasMovies) {
-        dynamicRanges.push([`от ${min} до ${max}`, `${min}-${max}`]);
-      }
+      optionSelect(selectElement, uniqueValues, item.optionsDefault);
     }
-    optionSelect(selectElement, dynamicRanges, item.optionsDefault);
-  } else if (key === "countries") {
-    optionSelect(selectElement, dynamicRanges, item.optionsDefault);
-  } else {
-    const uniqueValues = [
-      ...new Set(
-        moviesFromApi.flatMap((movie) => {
-          let values = movie[key];
-          return Array.isArray(values) ? values : [values];
-        }),
-      ),
-    ].sort((a, b) => {
-      if (!isNaN(b) && !isNaN(a)) {
-        return b - a;
-      }
-      return String(a).localeCompare(String(b));
-    });
-    optionSelect(selectElement, uniqueValues, item.optionsDefault);
   }
 }
+initializePage();

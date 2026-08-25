@@ -143,7 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const moviesFromApi = await kinopoiskApi.getTopMovies();
     moviesFromApi.forEach((movie) => {
-      console.log(movie);
       moviesSlider.appendChild(createMovieCard(movie));
     });
   } catch (error) {

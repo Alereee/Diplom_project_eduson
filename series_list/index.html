@@ -13,7 +13,10 @@
   <body>
     <div class="burger-menu-none">
       <button>
-        <img src="../assets/close-burger-black.svg" class="close-burger-theme"/>
+        <img
+          src="../assets/close-burger-black.svg"
+          class="close-burger-theme"
+        />
       </button>
       <nav>
         <ul>
@@ -83,7 +86,7 @@
               class="search-input__icon"
             />
             <input
-              name="text"
+              name="search"
               type="text"
               placeholder="Что сегодня посмотреть"
               class="search-input__input"
@@ -94,6 +97,7 @@
       </section>
       <section class="main-films container">
         <aside>
+          <h2>Фильмы</h2>
           <form>
             <div class="aside-lab">
               <label>Жанр</label>
@@ -124,15 +128,29 @@
         <div class="main-content">
           <div class="main-content-title">
             <h2>Фильмы</h2>
-            <div class="main-content-nav">
-              <a href="#1" id="1">1</a>
-              <a href="#2" id="2">2</a>
-              <a href="#3" id="3">3</a>
-              <a href="#4" id="4">4</a>
-              <a href="#5" id="5">5</a>
-            </div>
+            <div class="main-content-nav"></div>
           </div>
-          <div class="main-content-movies"></div>
+          <div class="movie-list">
+            <button class="arrow-left disabled" onclick="moveSlider(-1)">
+              <img
+                src="../assets/arrow-slider-mobile-black.svg"
+                alt="arrow-slider-mobile"
+                class="arrow-slider-mobile"
+              />
+            </button>
+            <div class="main-content-movies wrapper-movies">
+              <div class="movies-slider">
+                <div class="movie-card"></div>
+              </div>
+            </div>
+            <button class="arrow-right" onclick="moveSlider(1)">
+              <img
+                src="../assets/arrow-slider-mobile-black.svg"
+                alt="arrow-slider-mobile-black"
+                class="arrow-slider-mobile"
+              />
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -190,4 +208,6 @@
   <script src="../script/filter-movies.js" type="module" defer></script>
   <script src="../script/card-movies-actual.js" type="module" defer></script>
   <script src="../script/burger-menu.js" defer></script>
+  <script src="../script/slider-main.js" defer></script>
+  <script src="../script/seacrh.js" defer type="module"></script>
 </html>

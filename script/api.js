@@ -1,7 +1,7 @@
 const API_KEY = import.meta.env.VITE_KINOPOISK_API_KEY;
 
 export class KinopoiskApi {
-  _baseUrl = "https://kinopoiskapiunofficial.tech/api/v2.2";
+  _baseUrl = "https://kinopoiskapiunofficial.tech/api";
   async _request(endpoint, options = {}) {
     const url = this._baseUrl + endpoint;
     const response = await fetch(url, {
@@ -20,16 +20,23 @@ export class KinopoiskApi {
   }
   async getTopMovies() {
     const data = await this._request(
-      "/films/top?type=TOP_100_POPULAR_FILMS&page=1",
+      "/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1",
     );
+    console.log(data);
     return data.films;
   }
   async getMovieFilms() {
-    const data = await this._request(`/films`);
+    const data = await this._request(`/v2.2/films?type=FILM`);
     console.log(data);
     return data.items;
   }
-
-  // Сюда можно добавлять другие методы, например:
-  // async getMovieById(id) { ... }
+  async getMovieSeraials() {
+    const data = await this._request(`/v2.2/films?type=TV_SERIES`);
+    console.log("series", data);
+    return data.items;
+  }
+  async getBySearch(query) {
+    const data = await this._request(`/v2.1/films/search-by-keyword?keyword=${query}`);
+    return data.items;
+  }
 }

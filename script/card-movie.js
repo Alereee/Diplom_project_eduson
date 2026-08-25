@@ -23,7 +23,6 @@ export function createMovieCard(movie) {
         </div>
     </div>
   `;
-  movieCard.href = `/movie/index.html?title=${movie.name}`;
-  // console.log(movieCard);
+  movieCard.href = `/movie/index.html?title=${movie.nameRu || movie.nameOriginal}`;
   return movieCard;
 }
