@@ -1,8 +1,10 @@
 import { colorThresholds } from "./colorRatingDiapazon.js";
-import { moviesConfig } from "./config-movies-films.js";
+import { KinopoiskApi } from "./api.js";
+const kinopoiskApi = new KinopoiskApi();
+
 export const configFilter = [
   {
-    genre: document.querySelector("[name='genre']"),
+    genres: document.querySelector("[name='genre']"),
     optionsDefault: "Все жанры",
   },
   {
@@ -10,15 +12,15 @@ export const configFilter = [
     optionsDefault: "Все рейтинги",
   },
   {
-    country: document.querySelector("[name='country']"),
+    countries: document.querySelector("[name='country']"),
     optionsDefault: "Все страны",
   },
   {
-    releaseDate: document.querySelector("[name='year']"),
+    year: document.querySelector("[name='year']"),
     optionsDefault: "Все годы",
   },
 ];
-
+const moviesFromApi = await kinopoiskApi.getMovieFilms();
 const optionSelect = (select, array, defaultText) => {
   select.innerHTML = "";
   const defaultOption = document.createElement("option");
@@ -45,8 +47,8 @@ for (let item of configFilter) {
     const dynamicRanges = [];
     for (let [range] of colorThresholds) {
       const [min, max] = range;
-      const hasMovies = moviesConfig.some((movie) => {
-        const r = Number(movie.rating);
+      const hasMovies = moviesFromApi.some((movie) => {
+        const r = Number(movie.ratingKinopoisk);
         return r >= min && r <= max;
       });
 
@@ -55,14 +57,13 @@ for (let item of configFilter) {
       }
     }
     optionSelect(selectElement, dynamicRanges, item.optionsDefault);
+  } else if (key === "countries") {
+    optionSelect(selectElement, dynamicRanges, item.optionsDefault);
   } else {
     const uniqueValues = [
       ...new Set(
-        moviesConfig.flatMap((movie) => {
+        moviesFromApi.flatMap((movie) => {
           let values = movie[key];
-          if (key === "releaseDate") {
-            values = values.slice(0, 4);
-          }
           return Array.isArray(values) ? values : [values];
         }),
       ),

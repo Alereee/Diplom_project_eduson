@@ -1,5 +1,8 @@
 import { configFilter } from "./filter.js";
 import { moviesConfig } from "./config-movies-films.js";
+import { KinopoiskApi } from "./api.js";
+const kinopoiskApi = new KinopoiskApi();
+const moviesFromApi = await kinopoiskApi.getMovieFilms();
 export const filterMovies = () => {
   const activeFilters = {};
   configFilter.forEach((item) => {
@@ -7,22 +10,24 @@ export const filterMovies = () => {
     const selectElement = item[key];
     activeFilters[key] = selectElement.value;
   });
-  const filtered = moviesConfig.filter((movie) => {
+  const filtered = moviesFromApi.filter((movie) => {
     if (activeFilters.genre && movie.genre !== activeFilters.genre) {
       return false;
     }
-    if (activeFilters.country && !movie.country.includes(activeFilters.country)) {
+    if (
+      activeFilters.country &&
+      !movie.country.includes(activeFilters.country)
+    ) {
       return false;
     }
     if (activeFilters.releaseDate) {
-      const movieYear = movie.releaseDate ? String(movie.releaseDate.slice(0, 4)) : "";
-      if (movieYear !== activeFilters.releaseDate) {
+      if (movie.year !== activeFilters.releaseDate) {
         return false;
       }
     }
     if (activeFilters.rating) {
       const [min, max] = activeFilters.rating.split("-").map(Number);
-      const currentRating = Number(movie.rating);
+      const currentRating = Number(movie.ratingKinopoisk);
       if (currentRating < min || currentRating > max) {
         return false;
       }
