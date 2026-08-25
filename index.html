@@ -12,7 +12,7 @@
   <body>
     <div class="burger-menu-none">
       <button>
-        <img src="assets/close-burger-black.svg" class="close-burger-theme"/>
+        <img src="assets/close-burger-black.svg" class="close-burger-theme" />
       </button>
       <nav>
         <ul>
@@ -73,7 +73,7 @@
             <button class="arrow-nav-mobile">
               <img src="assets/arrow-nav-mobile.svg" alt="arrow-nav-mobile" />
             </button>
-          </div>  
+          </div>
         </div>
         <img
           src="assets/sec-1-back.png"
@@ -82,7 +82,7 @@
         />
       </section>
       <section class="movie-list">
-        <button class="arrow-left disabled" onclick="moveSlider(-1)">
+        <button class="arrow-left disabled">
           <img
             src="assets/arrow-right-black.svg"
             alt="arrow-left"
@@ -178,16 +178,15 @@
     </footer>
   </body>
   <script src="script/data.js" type="module"></script>
-  <script src="script/render-movies.js" type="module"></script>
   <script src="script/config-movies.js" type="module"></script>
   <script src="script/slider-main.js" type="module"></script>
   <script src="script/theme-switcher.js" defer></script>
   <script src="script/burger-menu.js" defer></script>
   <script>
-    const arrowNavMobile = document.querySelector('.arrow-nav-mobile');
-    arrowNavMobile.addEventListener('click', () => {
-      document.getElementById('about').scrollIntoView({
-        behavior: 'smooth',
+    const arrowNavMobile = document.querySelector(".arrow-nav-mobile");
+    arrowNavMobile.addEventListener("click", () => {
+      document.getElementById("about").scrollIntoView({
+        behavior: "smooth",
       });
     });
   </script>

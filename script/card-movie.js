@@ -1,4 +1,5 @@
 import { colorThresholds } from "./colorRatingDiapazon.js";
+import { getMovies } from "./data.js";
 export function getDynamicColor(rating) {
   const numRating = Number(rating);
   for (let [range, color] of colorThresholds) {
@@ -13,16 +14,16 @@ export function getDynamicColor(rating) {
 export function createMovieCard(movie) {
   const movieCard = document.createElement("a");
   movieCard.innerHTML = `
-    <div class="movie-card" style="background-image: url(${movie.poster}); background-position: center; background-size: cover; ">
+    <div class="movie-card" style="background-image: url(${movie.posterUrl}); background-position: center; background-size: cover; ">
         <div class="movie-rating" style="background-color: ${getDynamicColor(movie.rating)}">
             <p>${movie.rating}</p>
         </div>
         <div class="movie-title">
-            <p>${movie.title[0]}</p>
+            <p>${movie.nameRu}</p>
         </div>
     </div>
   `;
-  movieCard.href = `/movie/index.html?title=${movie.title[1]}`;
+  movieCard.href = `/movie/index.html?title=${movie.name}`;
   // console.log(movieCard);
   return movieCard;
 }

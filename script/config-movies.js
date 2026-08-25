@@ -1,4 +1,5 @@
 import { createMovieCard } from "./card-movie.js";
+import { getMovies } from "./data.js";
 export const configMovies = [
   {
     id: 1,
@@ -135,7 +136,27 @@ export const configMovies = [
     ],
   },
 ];
+document.addEventListener("DOMContentLoaded", async () => {
+  const moviesSlider = document.querySelector(".movies-slider");
+  try {
+    const moviesFromApi = await getMovies();
+    console.log(moviesFromApi);
+    // Этот код отображает локальные фильмы из этого файла
+    moviesFromApi.forEach((movie) => {
+      moviesSlider.appendChild(createMovieCard(movie));
+    });
 
-configMovies.forEach((movie) => {
-  document.querySelector(".movies-slider").appendChild(createMovieCard(movie));
+    // А этот код пытается загрузить и отобразить фильмы из API
+    // Возможно, вы захотите объединить или разделить эту логику
+    // Если вы хотите их тоже отобразить:
+    // moviesFromApi.forEach((movie) => {
+    //   moviesSlider.appendChild(createMovieCard(movie));
+    // });
+  } catch (error) {
+    console.error("Ошибка при загрузке фильмов:", error);
+    if (moviesSlider) {
+      moviesSlider.innerHTML =
+        "<p>Не удалось загрузить фильмы. Попробуйте позже.</p>";
+    }
+  }
 });

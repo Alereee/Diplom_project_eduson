@@ -39,17 +39,14 @@ const moveSlider = (direction) => {
     "disabled",
   );
 };
-const sliderTrack = document.querySelector('.movies-slider');
+const sliderTrack = document.querySelector(".movies-slider");
+const arrowLefts = document.querySelectorAll(".arrow-left");
+const arrowRights = document.querySelectorAll(".arrow-right");
 
-document.addEventListener('DOMContentLoaded', () => {
-  const arrowLefts = document.querySelectorAll('.arrow-left');
-  const arrowRights = document.querySelectorAll('.arrow-right');
+arrowLefts.forEach((button) => {
+  button.addEventListener("click", () => moveSlider(-1));
+});
 
-  arrowLefts.forEach(button => {
-    button.addEventListener('click', () => moveSlider(-1));
-  });
-
-  arrowRights.forEach(button => {
-    button.addEventListener('click', () => moveSlider(1));
-  });
+arrowRights.forEach((button) => {
+  button.addEventListener("click", () => moveSlider(1));
 });

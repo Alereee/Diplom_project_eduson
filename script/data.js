@@ -1,22 +1,20 @@
 const API_KEY = import.meta.env.VITE_KINOPOISK_API_KEY;
 
-export async function searchMovies(query) {
+export async function getMovies() {
   const response = await fetch(
-    `/api/v1.4/movie/search?query=${encodeURIComponent(
-      query
-    )}&limit=6`,
+    `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`,
     {
       headers: {
-        'X-API-KEY': API_KEY,
+        "X-API-KEY": "d8ef2a50-c751-4d99-a634-50f88412c8fd",
+        "Content-Type": "application/json",
       },
-    }
+    },
   );
-  const res = fetch('https://api.kinopoisk.dev/v1.4/movie/search?query=Интерстеллар&limit=10');
-  console.log(res);
   if (!response.ok) {
     throw new Error(`Ошибка API: ${response.status}`);
   }
 
   const data = await response.json();
-  return data.docs;
+  console.log(data);
+  return data.films;
 }
