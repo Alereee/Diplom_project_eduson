@@ -36,7 +36,23 @@ export class KinopoiskApi {
     return data.items;
   }
   async getBySearch(query) {
-    const data = await this._request(`/v2.1/films/search-by-keyword?keyword=${query}`);
+    const data = await this._request(
+      `/v2.1/films/search-by-keyword?keyword=${query}`,
+    );
     return data.items;
+  }
+  async getMoviePage(id) {
+    const film = await this._request(`/v2.2/films/${id}`);
+    const reviews = await this._request(`/v2.2/films/${id}/reviews`);
+    const trailer = await this._request(`/v2.2/films/${id}/videos`);
+    const cadrs = await this._request(`/v2.2/films/${id}/images`);
+    const direction = await this._request(`/v1/staff?filmId=${id}`);
+    return {
+      ...film,
+      reviews,
+      trailer,
+      cadrs,
+      direction,
+    };
   }
 }

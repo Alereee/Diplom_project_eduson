@@ -6,14 +6,15 @@ const dataPromise = (async () => {
   const path = window.location.pathname;
 
   if (path.includes("/movie_list/index.html")) {
-    return kinopoiskApi.getMovieFilms(); 
-  } 
-  
+    return kinopoiskApi.getMovieFilms();
+  }
+
   if (path.includes("/series_list/index.html")) {
     return kinopoiskApi.getMovieSeraials();
   }
-  console.warn("path.js: Неизвестный путь, данные не будут загружены.");
-  return [];
+  if (path.includes("/index.html") || path === "/") {
+    return kinopoiskApi.getTopMovies();
+  }
 })();
 
 export default dataPromise;
