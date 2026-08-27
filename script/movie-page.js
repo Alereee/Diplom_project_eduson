@@ -1,6 +1,7 @@
 import { createMovieCard, getDynamicColor } from "./card-movie.js";
 import { limitValues } from "./limitValues.js";
 import { KinopoiskApi } from "./api.js";
+import { slideImage } from "./card-movie.js";
 
 const kinopoiskApi = new KinopoiskApi();
 const urlParams = new URLSearchParams(window.location.search);
@@ -8,7 +9,8 @@ const movieCard = document.querySelector(".movie-card");
 const id = urlParams.get("id");
 const movie = await kinopoiskApi.getMoviePage(id);
 console.log(movie);
-console.log(movie.trailer.items.filter((item) => item.name === "Трейлер").url);
+const trailer = movie.trailer?.items?.find((item) => item.name === "Трейлер");
+
 movieCard.innerHTML = `
   <div class="movie-card movie-card-image" style="background-image: url(${movie.posterUrl}); background-position: center; background-size: cover; ">
     <div class="movie-rating" style="background-color: ${getDynamicColor(movie.rating || movie.ratingKinopoisk)}">
@@ -74,12 +76,24 @@ movieCardPodrobnee.innerHTML = `
   </div>
 `;
 const videoFrag = document.querySelector(".video-frag");
-const video = document.createElement("video");
-videoFrag.innerHTML = `
-  <video controls>
-    <source src="" type="video/mp4">
-  </video>
-`;
+const trailerHtml = trailer
+  ? `<iframe 
+      src="${trailer.url}" 
+      width="100%" 
+      height="450" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+     </iframe>`
+  : `<p>Трейлер недоступен</p>`;
+
+videoFrag.innerHTML = trailerHtml;
+// const movSlider = document.querySelector(".movies-slider");
+const cadr = movie.cadrs.items;
+cadr.forEach((item) => {
+  slideImage(item.imageUrl);
+});
+console.log(cadr);
 const getRatingStar = (rating) => {
   const ratingConstStar = 10;
   let ratingStar = "";
@@ -92,16 +106,17 @@ const getRatingStar = (rating) => {
   return ratingStar;
 };
 const revievList = document.querySelector(".review-list");
-movie.reviews.forEach((review) => {
+const reviews = movie.reviews.items;
+limitValues(reviews, 2).forEach((review) => {
   revievList.innerHTML += `
   <div class="review-item">
     <div class="review-item-header">
-      <h4>${review.user}</h4>
+      <h4>${review.author}</h4>
       <div class="review-item-rating">
-        ${getRatingStar(review.rating)}
+        ${getRatingStar(review.description)}
       </div>
     </div>
-    <p>${review.text}</p>
+    <p>${review.description}</p>
   </div>
 `;
 });

@@ -30,4 +30,5 @@ body.dark-theme {
   --header-bg: var(--color-black);
   --burger-bg: var(--color-black);
   --select-bg-color: var(--color-black);
+  --review-background-color: var(--color-black);
 }

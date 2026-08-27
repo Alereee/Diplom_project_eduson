@@ -15,6 +15,9 @@ const dataPromise = (async () => {
   if (path.includes("/index.html") || path === "/") {
     return kinopoiskApi.getTopMovies();
   }
+  if (path.includes("/movie/index.html")) {
+    return kinopoiskApi.getMoviePage(path.split("=")[1]);
+  }
 })();
 
 export default dataPromise;

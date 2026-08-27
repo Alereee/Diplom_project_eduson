@@ -68,7 +68,7 @@ video {
 .review-item {
   width: 570px;
   background-color: var(--review-background-color);
-  padding: 50px 61px 110px 46px;
+  padding: 20px;
 }
 .review-item h4 {
   font-size: var(--font-size-2xl);
@@ -83,6 +83,11 @@ video {
   margin-top: 50px;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .gallery-arrow {
   display: none;
@@ -180,6 +185,9 @@ video {
   }
   .gallery-arrow .arrow-right img {
     margin-top: 8px;
+  }
+  .video-h3 {
+    margin: 30px 0;
   }
 }
 @media (max-width: 700px) {

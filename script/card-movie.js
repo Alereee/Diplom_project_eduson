@@ -26,3 +26,10 @@ export function createMovieCard(movie) {
   movieCard.href = `/movie/index.html?id=${movie.filmId || movie.kinopoiskId}`;
   return movieCard;
 }
+export function slideImage(image) {
+  const imageElement = document.createElement("div");
+  imageElement.style.backgroundImage = `url(${image})`;
+  imageElement.style.backgroundPosition = "center";
+  imageElement.style.backgroundSize = "cover";
+  return imageElement;
+}
