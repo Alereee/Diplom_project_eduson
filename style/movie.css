@@ -76,7 +76,7 @@ video {
 }
 .card-slide {
   flex-shrink: 0;
-  width: 587px;
+  width: calc((100% - 80px) / 2);
 }
 
 .card-slide img {
@@ -207,6 +207,15 @@ video {
   }
   .video-h3 {
     margin: 30px 0;
+  }
+  .card-slider {
+    gap: 30px;
+  }
+  .card-slide {
+    width: 70%;
+  }
+  .wrapper-movies {
+    max-width: none;
   }
 }
 @media (max-width: 700px) {
