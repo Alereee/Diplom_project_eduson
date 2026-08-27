@@ -27,9 +27,12 @@ export function createMovieCard(movie) {
   return movieCard;
 }
 export function slideImage(image) {
-  const imageElement = document.createElement("div");
-  imageElement.style.backgroundImage = `url(${image})`;
-  imageElement.style.backgroundPosition = "center";
-  imageElement.style.backgroundSize = "cover";
-  return imageElement;
+  const slideContainer = document.createElement("div");
+  slideContainer.classList.add("card-slide");
+
+  const imageElement = document.createElement("img");
+  imageElement.src = image;
+
+  slideContainer.appendChild(imageElement);
+  return slideContainer;
 }

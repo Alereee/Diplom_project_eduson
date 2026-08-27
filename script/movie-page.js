@@ -76,23 +76,31 @@ movieCardPodrobnee.innerHTML = `
   </div>
 `;
 const videoFrag = document.querySelector(".video-frag");
-const trailerHtml = trailer
-  ? `<iframe 
+if (trailer) {
+  videoFrag.innerHTML = `<iframe 
       src="${trailer.url}" 
       width="100%" 
       height="450" 
       frameborder="0" 
       allow="autoplay; encrypted-media" 
       allowfullscreen>
-     </iframe>`
-  : `<p>Трейлер недоступен</p>`;
-
-videoFrag.innerHTML = trailerHtml;
-// const movSlider = document.querySelector(".movies-slider");
+     </iframe>`;
+} else {
+  videoFrag.parentElement.style.display = "none";
+}
+const cardSlider = document.querySelector(".card-slider");
 const cadr = movie.cadrs.items;
-cadr.forEach((item) => {
-  slideImage(item.imageUrl);
-});
+if (cadr && cadr.length > 0) {
+  cadr.forEach((item) => {
+    cardSlider.appendChild(slideImage(item.imageUrl));
+    console.log(item.imageUrl);
+  });
+} else {
+  const fragmentsContainer = document.querySelector(".fragments-contanier");
+  if (fragmentsContainer) {
+    fragmentsContainer.style.display = "none";
+  }
+}
 console.log(cadr);
 const getRatingStar = (rating) => {
   const ratingConstStar = 10;
@@ -107,8 +115,9 @@ const getRatingStar = (rating) => {
 };
 const revievList = document.querySelector(".review-list");
 const reviews = movie.reviews.items;
-limitValues(reviews, 2).forEach((review) => {
-  revievList.innerHTML += `
+if (reviews && reviews.length > 0) {
+  limitValues(reviews, 2).forEach((review) => {
+    revievList.innerHTML += `
   <div class="review-item">
     <div class="review-item-header">
       <h4>${review.author}</h4>
@@ -119,4 +128,10 @@ limitValues(reviews, 2).forEach((review) => {
     <p>${review.description}</p>
   </div>
 `;
-});
+  });
+} else {
+  const reviewSection = revievList.parentElement;
+  if (reviewSection) {
+    reviewSection.style.display = "none";
+  }
+}

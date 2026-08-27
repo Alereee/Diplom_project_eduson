@@ -1,6 +1,6 @@
 function getScrollAmount() {
   return (
-    document.querySelector(".fragments-contanier .movie-card") ||
+    document.querySelector(".card-slide") ||
     document.querySelector(".movie-card")
   );
 }
@@ -39,7 +39,9 @@ const moveSlider = (direction) => {
     "disabled",
   );
 };
-const sliderTrack = document.querySelector(".movies-slider");
+const sliderTrack =
+  document.querySelector(".movies-slider") ||
+  document.querySelector(".card-slider");
 const arrowLefts = document.querySelectorAll(".arrow-left");
 const arrowRights = document.querySelectorAll(".arrow-right");
 
