@@ -108,6 +108,9 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.dark-theme .review-item-rating {
+  filter: invert(1);
+}
 .gallery-arrow {
   display: none;
   justify-content: space-between;

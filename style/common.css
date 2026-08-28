@@ -239,6 +239,10 @@ body.no-transition .switch {
   padding: 25px 65px;
   margin-right: 10px;
 }
+.search-input__btn:hover {
+  background-color: var(--text-dark) !important;
+  color: var(--text-black) !important;
+}
 .search-input__div {
   width: 1492px;
   height: 100px;

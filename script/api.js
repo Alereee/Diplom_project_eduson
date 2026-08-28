@@ -22,17 +22,14 @@ export class KinopoiskApi {
     const data = await this._request(
       "/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1",
     );
-    console.log(data);
     return data.films;
   }
   async getMovieFilms() {
     const data = await this._request(`/v2.2/films?type=FILM`);
-    console.log(data);
     return data.items;
   }
   async getMovieSeraials() {
     const data = await this._request(`/v2.2/films?type=TV_SERIES`);
-    console.log("series", data);
     return data.items;
   }
   async getBySearch(query) {

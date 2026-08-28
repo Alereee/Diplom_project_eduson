@@ -106,10 +106,13 @@ const getRatingStar = (rating) => {
   const ratingConstStar = 10;
   let ratingStar = "";
   for (let i = 0; i < rating; i++) {
-    ratingStar += `<img src="../assets/star-black.svg" alt="star">`;
+    ratingStar += `<img src="../assets/star-black.svg" alt="star" class="review-item-rating-item">`;
+    if (i === ratingConstStar) {
+      return ratingStar;
+    }
   }
   for (let i = rating; i < ratingConstStar; i++) {
-    ratingStar += `<img src="../assets/star.svg" alt="star">`;
+    ratingStar += `<img src="../assets/star.svg" alt="star" class="review-item-rating-item">`;
   }
   return ratingStar;
 };
@@ -122,7 +125,7 @@ if (reviews && reviews.length > 0) {
     <div class="review-item-header">
       <h4>${review.author}</h4>
       <div class="review-item-rating">
-        ${getRatingStar(review.description)}
+        ${getRatingStar(review.positiveRating)}
       </div>
     </div>
     <p>${review.description}</p>

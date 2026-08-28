@@ -19,7 +19,6 @@ export const configFilter = [
     optionsDefault: "Все годы",
   },
 ];
-let moviesFromApi = [];
 const optionSelect = (select, array, defaultText) => {
   select.innerHTML = "";
   const defaultOption = document.createElement("option");
@@ -52,7 +51,6 @@ function populateFilters(movies) {
       const dynamicRanges = [];
       for (let [range] of colorThresholds) {
         const [min, max] = range;
-        // Теперь мы работаем с актуальным массивом 'movies'
         const hasMovies = movies.some((movie) => {
           const r = Number(movie.ratingKinopoisk);
           return r >= min && r <= max;
@@ -67,11 +65,11 @@ function populateFilters(movies) {
       const uniqueValues = [
         ...new Set(
           movies.flatMap((movie) => {
-            if (key === 'genres' || key === 'countries') {
-              return movie[key].map(val => val[key.slice(0, -1)]); // 'genres' -> 'genre', 'countries' -> 'country'
+            if (key === "genres" || key === "countries") {
+              return movie[key].map((val) => val[key.slice(0, -1)]); // 'genres' -> 'genre', 'countries' -> 'country'
             }
             return movie[key];
-          })
+          }),
         ),
       ].sort((a, b) => {
         if (!isNaN(b) && !isNaN(a)) {
