@@ -1,6 +1,7 @@
-import { filterMovies } from "./filter-movies.js";
 import { createMovieCard } from "./card-movie.js";
 import dataPromise from "./path.js";
+
+let currentMovies = [];
 
 const PER_PAGE = 9;
 const getCurrentPageFromUrl = () => {
@@ -29,41 +30,38 @@ function renderNavigation(totalMovies) {
     if (i === currentPage) {
       a.classList.add("active");
     }
-    a.href = `?page=${i}`;
+    a.href = `#page=${i}`;
     navListMovie.appendChild(a);
   }
 }
 
-function renderMovies() {
-  const moviesList = filterMovies();
+function renderMovies(moviesList) {
+  if (moviesList) {
+    currentMovies = moviesList;
+    currentPage = 1;
+  }
+
   let movies = [];
-  let movieBoll = true;
   if (window.innerWidth < 800) {
-    movieBoll = false;
-    movies = moviesList;
+    movies = currentMovies;
   } else if (window.innerWidth >= 800) {
-    renderNavigation(moviesList.length);
-    movies = getTabulMovies(moviesList, currentPage);
-    movieBoll = true;
+    renderNavigation(currentMovies.length);
+    movies = getTabulMovies(currentMovies, currentPage);
   }
   const container = document.querySelector(".movies-slider");
   container.innerHTML = "";
-  if (movieBoll) {
-    movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
-  } else {
-    movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
-  }
+  movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
 }
 
 window.renderMovies = renderMovies;
 async function initializePage() {
-  await dataPromise;
+  currentMovies = await dataPromise;
   renderMovies();
   navListMovie.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
       e.preventDefault();
       currentPage = Number(e.target.id);
-      history.pushState(null, "", `?page=${currentPage}`);
+      history.pushState(null, "", `#page=${currentPage}`);
       renderMovies();
     }
   });

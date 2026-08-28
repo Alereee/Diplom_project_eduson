@@ -65,18 +65,34 @@ function populateFilters(movies) {
       const uniqueValues = [
         ...new Set(
           movies.flatMap((movie) => {
-            if (key === "genres" || key === "countries") {
-              return movie[key].map((val) => val[key.slice(0, -1)]); // 'genres' -> 'genre', 'countries' -> 'country'
+            if (Array.isArray(movie[key])) {
+              if (key === "countries") {
+                return movie[key].map((val) => val.country);
+              }
+              if (key === "genres") {
+                return movie[key].map((val) => val.genre);
+              }
+              if (key === "countries") {
+                return movie[key].map((val) => val.country);
+              }
+              if (key === "genres") {
+                return movie[key].map((val) => val.genre);
+              }
+              return movie[key].map((val) => Object.values(val)[0]);
             }
-            return movie[key];
+            if (movie[key]) {
+              return [movie[key]];
+            }
+            return [];
           }),
         ),
-      ].sort((a, b) => {
-        if (!isNaN(b) && !isNaN(a)) {
-          return b - a;
-        }
-        return String(a).localeCompare(String(b));
-      });
+      ];
+
+      if (key === "year") {
+        uniqueValues.sort((a, b) => b - a);
+      } else {
+        uniqueValues.sort((a, b) => String(a).localeCompare(String(b), "ru"));
+      }
       optionSelect(selectElement, uniqueValues, item.optionsDefault);
     }
   }
