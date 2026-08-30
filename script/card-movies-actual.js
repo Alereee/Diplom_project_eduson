@@ -53,6 +53,8 @@ function renderMovies(moviesList) {
   movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
 }
 
+export { renderMovies };
+
 window.renderMovies = renderMovies;
 async function initializePage() {
   currentMovies = await dataPromise;

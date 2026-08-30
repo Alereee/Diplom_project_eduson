@@ -238,10 +238,12 @@ body.no-transition .switch {
   font-size: var(--font-size-2xl);
   padding: 25px 65px;
   margin-right: 10px;
+  transition: 0.3s;
 }
 .search-input__btn:hover {
-  background-color: var(--text-dark) !important;
-  color: var(--text-black) !important;
+  background-color: var(--search-button) !important;
+  color: var(--color-white) !important;
+  border: none !important;
 }
 .search-input__div {
   width: 1492px;
@@ -474,13 +476,15 @@ footer {
 }
 @media (max-width: 800px) {
   .space-hero {
-    height: 550px;
+    min-height: 550px!important;
   }
   .movie-list {
     max-width: 600px;
+    padding-left: 0px;
   }
   .wrapper-movies {
     max-width: 500px;
+    width: 100%;
   }
   .movie-card {
     width: 240px;
@@ -592,6 +596,9 @@ footer {
   .movie-list button {
     padding: 0 5px;
   }
+  .wrapper{
+    padding: 0 5px;
+  }
 }
 @media (max-width: 420px) {
   ul li a img {
@@ -604,5 +611,9 @@ footer {
     padding: 5px 10px;
     border-radius: 20px;
     margin-right: 5px;
+  }
+  .burger-menu img {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -20,6 +20,7 @@
   --header-bg: var(--background-white);
   --burger-bg: var(--background-light);
   --select-bg-color: var(--background-light);
+  --search-button: rgba(80, 76, 76, 1);
 }
 
 body.dark-theme {

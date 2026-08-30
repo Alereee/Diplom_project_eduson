@@ -36,7 +36,7 @@ export class KinopoiskApi {
     const data = await this._request(
       `/v2.1/films/search-by-keyword?keyword=${query}`,
     );
-    return data.items;
+    return data.films;
   }
   async getMoviePage(id) {
     const film = await this._request(`/v2.2/films/${id}`);
