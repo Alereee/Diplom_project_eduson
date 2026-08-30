@@ -1,6 +1,8 @@
 import { createMovieCard } from "./card-movie.js";
 import dataPromise from "./path.js";
+import { KinopoiskApi } from "./api.js";
 
+const kinopoiskApi = new KinopoiskApi();
 let currentMovies = [];
 
 const PER_PAGE = 9;
@@ -57,7 +59,15 @@ export { renderMovies };
 
 window.renderMovies = renderMovies;
 async function initializePage() {
-  currentMovies = await dataPromise;
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+
+  if (searchQuery) {
+    currentMovies = await kinopoiskApi.getBySearch(searchQuery);
+  } else {
+    currentMovies = await dataPromise;
+  }
+  
   renderMovies();
   navListMovie.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
