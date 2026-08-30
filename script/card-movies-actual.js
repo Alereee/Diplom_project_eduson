@@ -54,16 +54,14 @@ function renderMovies(moviesList) {
   container.innerHTML = "";
   movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
 }
-
-export { renderMovies };
-
 window.renderMovies = renderMovies;
 async function initializePage() {
   const urlParams = new URLSearchParams(window.location.search);
   const searchQuery = urlParams.get('search');
 
   if (searchQuery) {
-    currentMovies = await kinopoiskApi.getBySearch(searchQuery);
+    const searchResults = await kinopoiskApi.getBySearch(searchQuery);
+    currentMovies = Array.isArray(searchResults) ? searchResults : [];
   } else {
     currentMovies = await dataPromise;
   }
@@ -83,6 +81,6 @@ async function initializePage() {
     renderMovies();
   });
 
-  window.addEventListener("resize", renderMovies);
+  window.addEventListener("resize", () => renderMovies());
 }
 initializePage();
