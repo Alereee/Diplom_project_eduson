@@ -21,6 +21,8 @@
   --burger-bg: var(--background-light);
   --select-bg-color: var(--background-light);
   --search-button: rgba(80, 76, 76, 1);
+  --button-trailer: #f5c518;
+  --button-trailer-hover: #e5b508;
 }
 
 body.dark-theme {
@@ -32,4 +34,6 @@ body.dark-theme {
   --burger-bg: var(--color-black);
   --select-bg-color: var(--color-black);
   --review-background-color: var(--color-black);
-}
+  --button-trailer: var(--color-white);
+  --button-trailer-hover: var(--text-dark);
+  }

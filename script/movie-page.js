@@ -1,4 +1,4 @@
-import { createMovieCard, getDynamicColor } from "./card-movie.js";
+import { getDynamicColor } from "./card-movie.js";
 import { limitValues } from "./limitValues.js";
 import { KinopoiskApi } from "./api.js";
 import { slideImage } from "./card-movie.js";
@@ -14,7 +14,7 @@ const trailer = movie.trailer?.items?.find((item) => item.name === "Трейле
 movieCard.innerHTML = `
   <div class="movie-card movie-card-image" style="background-image: url(${movie.posterUrl}); background-position: center; background-size: cover; ">
     <div class="movie-rating" style="background-color: ${getDynamicColor(movie.rating || movie.ratingKinopoisk)}">
-        <p>${movie.rating || movie.ratingKinopoisk}</p>
+        <p>${movie.rating || movie.ratingKinopoisk || "N/A"}</p>
     </div>
     <div class="movie-title"></div>
   </div>
@@ -24,67 +24,97 @@ const upperFirstChar = (str) => {
 };
 const movieCardPodrobnee = document.querySelector(".movie-card-podrobnee");
 movieCardPodrobnee.innerHTML = `
-  <h2>${upperFirstChar(movie.nameRu || movie.nameOriginal)}</h2>
+  <h2>${upperFirstChar(movie.nameRu || movie.nameOriginal || "")}</h2>
   <h3>О фильме</h3>
   <div class="movie-card-podrobnee-content">
+    ${
+      movie.genres && movie.genres.length > 0
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Жанр</label>
       <p>${limitValues(
         movie.genres.map((item) => upperFirstChar(item.genre)),
-        4,
+        4
       ).join(", ")}</p>
     </div>
+    `
+        : ""
+    }
+    ${
+      movie.countries && movie.countries.length > 0
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Страна производства</label>
       <p>${limitValues(
         movie.countries.map((item) => upperFirstChar(item.country)),
-        4,
+        4
       ).join(", ")}</p>
     </div>
+    `
+        : ""
+    }
+    ${
+      movie.direction &&
+      movie.direction.filter((p) => p.professionKey === "ACTOR").length > 0
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Актеры</label>
-      <p>${
-        limitValues(
-          movie.direction
-            .filter((person) => person.professionKey === "ACTOR")
-            .map((item) => upperFirstChar(item.nameRu)),
-          4,
-        ).join(", ") || "Без актеров"
-      }</p>
+      <p>${limitValues(
+        movie.direction
+          .filter((person) => person.professionKey === "ACTOR")
+          .map((item) => upperFirstChar(item.nameRu)),
+        4
+      ).join(", ")}</p>
     </div>
+    `
+        : ""
+    }
+    ${
+      movie.direction &&
+      movie.direction.filter((p) => p.professionKey === "DIRECTOR").length > 0
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Режиссёры</label>
       <p>${limitValues(
         movie.direction
           .filter((person) => person.professionKey === "DIRECTOR")
           .map((item) => upperFirstChar(item.nameRu)),
-        4,
+        4
       ).join(", ")}</p>
     </div>
+    `
+        : ""
+    }
+    ${
+      movie.year
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Дата релиза</label>
-      <p>${movie.releaseDate}</p>
+      <p>${movie.year}</p>
     </div>
+    `
+        : ""
+    }
+    ${
+      movie.ratingAgeLimits
+        ? `
     <div class="movie-card-podrobnee-params">
       <label>Возврастное ограничение</label>
-      <p>${
-        movie.ratingAgeLimits
-          ? movie.ratingAgeLimits.replace("age", "") + "+"
-          : "Без ограничения"
-      }</p>
+      <p>${movie.ratingAgeLimits.replace("age", "") + "+"}</p>
     </div>
+    `
+        : ""
+    }
   </div>
 `;
 const videoFrag = document.querySelector(".video-frag");
 if (trailer) {
-  videoFrag.innerHTML = `<iframe 
-      src="${trailer.url}" 
-      width="100%" 
-      height="450" 
-      frameborder="0" 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen>
-     </iframe>`;
+  const trailerButton = document.createElement("a");
+  trailerButton.href = trailer.url;
+  trailerButton.target = "_blank";
+  trailerButton.classList.add("trailer-button");
+  trailerButton.innerHTML = "Смотреть трейлер";
+  videoFrag.appendChild(trailerButton);
 } else {
   videoFrag.parentElement.style.display = "none";
 }

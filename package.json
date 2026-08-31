@@ -4,7 +4,7 @@
   "description": "",
   "main": "vite.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "vite"
   },
   "repository": {
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/Alereee/Web_Developer_FilmSearch_Melekhin#readme",
   "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "babel-jest": "^30.5.0",
+    "jest": "^30.5.0",
+    "jest-environment-jsdom": "^30.5.0",
     "vite": "^8.2.2"
   }
 }

@@ -62,16 +62,36 @@ function populateFilters(movies) {
           movies.flatMap((movie) => {
             if (Array.isArray(movie[key])) {
               if (key === "countries") {
-                return movie[key].map((val) => val.country);
+                return movie[key].map((val) => {
+                  if (!val.country || val.country === null) {
+                    return "";
+                  }
+                  return val.country;
+                });
               }
               if (key === "genres") {
-                return movie[key].map((val) => val.genre);
+                return movie[key].map((val) => {
+                  if (!val.genre || val.genre === null) {
+                    return "";
+                  }
+                  return val.genre;
+                });
               }
               if (key === "countries") {
-                return movie[key].map((val) => val.country);
+                return movie[key].map((val) => {
+                  if (!val.country || val.country === null) {
+                    return "";
+                  }
+                  return val.country;
+                });
               }
               if (key === "genres") {
-                return movie[key].map((val) => val.genre);
+                return movie[key].map((val) => {
+                  if (!val.genre || val.genre === null) {
+                    return "";
+                  }
+                  return val.genre;
+                });
               }
               return movie[key].map((val) => Object.values(val)[0]);
             }

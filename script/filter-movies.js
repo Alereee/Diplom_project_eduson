@@ -28,14 +28,21 @@ function filterMovies() {
     }
 
     if (activeFilters.year) {
+      if (!movie.year) {
+        return false;
+      }
       if (String(movie.year) !== activeFilters.year) {
         return false;
       }
     }
 
     if (activeFilters.rating) {
+      const rating = movie.rating || movie.ratingKinopoisk;
+      if (!rating) {
+        return false;
+      }
       const [min, max] = activeFilters.rating.split("-").map(Number);
-      const currentRating = Number(movie.rating || movie.ratingKinopoisk);
+      const currentRating = Number(rating);
       if (currentRating < min || currentRating > max) {
         return false;
       }
@@ -50,14 +57,13 @@ function filterMovies() {
 
 async function initializeFilterLogic() {
   configFilter.forEach((item) => {
-    const key = Object.keys(item).find((k) => k !== "optionsDefault");
+    const key = Object.keys(item).find((k) => k !== "optionsDefault" || k !== "" || k !== "undefined" || k !== "null");
     const selectElement = item[key];
 
     activeFilters[key] = selectElement.value;
 
     selectElement.addEventListener("change", (event) => {
       activeFilters[key] = event.target.value;
-      console.log(`Фильтр '${key}' изменен на:`, activeFilters[key]);
       filterMovies();
     });
   });

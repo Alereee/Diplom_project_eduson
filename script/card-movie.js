@@ -1,7 +1,13 @@
 import { colorThresholds } from "./colorRatingDiapazon.js";
 
 export function getDynamicColor(rating) {
+  if (rating === null || rating === undefined || rating === "") {
+    return "#777777";
+  }
   const numRating = Number(rating);
+  if (isNaN(numRating)) {
+    return "#777777";
+  }
   for (let [range, color] of colorThresholds) {
     const [minVal, maxVal] = range;
 
@@ -16,14 +22,14 @@ export function createMovieCard(movie) {
   movieCard.innerHTML = `
     <div class="movie-card" style="background-image: url(${movie.posterUrl}); background-position: center; background-size: cover; ">
         <div class="movie-rating" style="background-color: ${getDynamicColor(movie.rating || movie.ratingKinopoisk)}">
-            <p>${movie.rating || movie.ratingKinopoisk}</p>
+            <p>${movie.rating || movie.ratingKinopoisk || 'N/A'}</p>
         </div>
         <div class="movie-title">
-            <p>${movie.nameRu || movie.nameOriginal}</p>
+            <p>${movie.nameRu || movie.nameOriginal || ''}</p>
         </div>
     </div>
   `;
-  movieCard.href = `/movie/index.html?id=${movie.filmId || movie.kinopoiskId}`;
+  movieCard.href = `/movie/index.html?id=${movie.filmId || movie.kinopoiskId || ''}`;
   return movieCard;
 }
 export function slideImage(image) {
