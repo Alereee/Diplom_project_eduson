@@ -37,11 +37,6 @@ const optionSelect = (select, array, defaultText) => {
     select.appendChild(option);
   });
 };
-async function initializePage() {
-  const moviesFromApi = await dataPromise;
-  populateFilters(moviesFromApi);
-}
-
 function populateFilters(movies) {
   for (let item of configFilter) {
     const key = Object.keys(item).find((k) => k !== "optionsDefault");
@@ -52,7 +47,7 @@ function populateFilters(movies) {
       for (let [range] of colorThresholds) {
         const [min, max] = range;
         const hasMovies = movies.some((movie) => {
-          const r = Number(movie.ratingKinopoisk);
+          const r = Number(movie.rating || movie.ratingKinopoisk);
           return r >= min && r <= max;
         });
 
@@ -97,4 +92,12 @@ function populateFilters(movies) {
     }
   }
 }
+
+window.populateFilters = populateFilters;
+
+async function initializePage() {
+  const moviesFromApi = await dataPromise;
+  populateFilters(moviesFromApi);
+}
+
 initializePage();

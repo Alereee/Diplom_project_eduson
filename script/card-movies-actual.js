@@ -1,9 +1,11 @@
 import { createMovieCard } from "./card-movie.js";
+import "./filter.js";
 import dataPromise from "./path.js";
 import { KinopoiskApi } from "./api.js";
 
 const kinopoiskApi = new KinopoiskApi();
-let currentMovies = [];
+let sourceMovies = [];
+let filteredMovies = [];
 
 const PER_PAGE = 9;
 const getCurrentPageFromUrl = () => {
@@ -39,34 +41,43 @@ function renderNavigation(totalMovies) {
 
 function renderMovies(moviesList) {
   if (moviesList) {
-    currentMovies = moviesList;
+    filteredMovies = moviesList;
     currentPage = 1;
+    if (window.location.hash !== "" && window.location.hash !== "#page=1") {
+      history.pushState(null, "", `#page=1`);
+    }
   }
 
-  let movies = [];
+  let moviesToRender = [];
   if (window.innerWidth < 800) {
-    movies = currentMovies;
+    moviesToRender = filteredMovies;
   } else if (window.innerWidth >= 800) {
-    renderNavigation(currentMovies.length);
-    movies = getTabulMovies(currentMovies, currentPage);
+    renderNavigation(filteredMovies.length);
+    moviesToRender = getTabulMovies(filteredMovies, currentPage);
   }
   const container = document.querySelector(".movies-slider");
   container.innerHTML = "";
-  movies.forEach((movie) => container.appendChild(createMovieCard(movie)));
+  moviesToRender.forEach((movie) =>
+    container.appendChild(createMovieCard(movie)),
+  );
 }
 window.renderMovies = renderMovies;
+window.getMoviesForFilter = () => sourceMovies;
+
 async function initializePage() {
   const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get('search');
+  const searchQuery = urlParams.get("search");
 
+  let rawMovies = [];
   if (searchQuery) {
     const searchResults = await kinopoiskApi.getBySearch(searchQuery);
-    currentMovies = Array.isArray(searchResults) ? searchResults : [];
+    sourceMovies = Array.isArray(searchResults) ? searchResults : [];
+    window.populateFilters(sourceMovies);
   } else {
-    currentMovies = await dataPromise;
+    sourceMovies = await dataPromise;
   }
-  
-  renderMovies();
+
+  renderMovies(sourceMovies);
   navListMovie.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
       e.preventDefault();

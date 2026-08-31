@@ -5,8 +5,9 @@ let moviesFromApi = [];
 const activeFilters = {};
 
 function filterMovies() {
+  moviesFromApi = window.getMoviesForFilter();
   const filtered = moviesFromApi.filter((movie) => {
-    if (activeFilters.genres && activeFilters.genres !== "Все жанры") {
+    if (activeFilters.genres) {
       if (!movie.genres) {
         return false;
       }
@@ -16,7 +17,7 @@ function filterMovies() {
       }
     }
 
-    if (activeFilters.countries && activeFilters.countries !== "all") {
+    if (activeFilters.countries) {
       if (!movie.countries) {
         return false;
       }
@@ -26,15 +27,15 @@ function filterMovies() {
       }
     }
 
-    if (activeFilters.year && activeFilters.year !== "all") {
+    if (activeFilters.year) {
       if (String(movie.year) !== activeFilters.year) {
         return false;
       }
     }
 
-    if (activeFilters.rating && activeFilters.rating !== "all") {
+    if (activeFilters.rating) {
       const [min, max] = activeFilters.rating.split("-").map(Number);
-      const currentRating = Number(movie.ratingKinopoisk);
+      const currentRating = Number(movie.rating || movie.ratingKinopoisk);
       if (currentRating < min || currentRating > max) {
         return false;
       }
@@ -48,8 +49,6 @@ function filterMovies() {
 }
 
 async function initializeFilterLogic() {
-  moviesFromApi = await dataPromise;
-
   configFilter.forEach((item) => {
     const key = Object.keys(item).find((k) => k !== "optionsDefault");
     const selectElement = item[key];
