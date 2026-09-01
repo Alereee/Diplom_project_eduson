@@ -60,44 +60,32 @@ function populateFilters(movies) {
       const uniqueValues = [
         ...new Set(
           movies.flatMap((movie) => {
-            if (Array.isArray(movie[key])) {
-              if (key === "countries") {
-                return movie[key].map((val) => {
-                  if (!val.country || val.country === null) {
-                    return "";
-                  }
-                  return val.country;
-                });
+            const value = movie[key];
+
+            // Если значение - массив (жанры, страны)
+            if (Array.isArray(value)) {
+              let prop;
+              if (key === "genres") prop = "genre";
+              if (key === "countries") prop = "country";
+
+              if (prop) {
+                return value.map((item) => item && item[prop]).filter(Boolean);
               }
-              if (key === "genres") {
-                return movie[key].map((val) => {
-                  if (!val.genre || val.genre === null) {
-                    return "";
-                  }
-                  return val.genre;
-                });
-              }
-              if (key === "countries") {
-                return movie[key].map((val) => {
-                  if (!val.country || val.country === null) {
-                    return "";
-                  }
-                  return val.country;
-                });
-              }
-              if (key === "genres") {
-                return movie[key].map((val) => {
-                  if (!val.genre || val.genre === null) {
-                    return "";
-                  }
-                  return val.genre;
-                });
-              }
-              return movie[key].map((val) => Object.values(val)[0]);
+              return value
+                .map((item) => item && Object.values(item)[0])
+                .filter(Boolean);
             }
-            if (movie[key]) {
-              return [movie[key]];
+
+            // Если значение - простое (год и т.д.)
+            if (value) {
+              if (key === "year") {
+                const yearValue = parseInt(value, 10);
+                return !isNaN(yearValue) ? [yearValue] : [];
+              }
+              return [value];
             }
+
+            // Если значения нет, возвращаем пустой массив
             return [];
           }),
         ),

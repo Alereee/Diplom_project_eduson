@@ -34,7 +34,7 @@ movieCardPodrobnee.innerHTML = `
       <label>Жанр</label>
       <p>${limitValues(
         movie.genres.map((item) => upperFirstChar(item.genre)),
-        4
+        4,
       ).join(", ")}</p>
     </div>
     `
@@ -47,7 +47,7 @@ movieCardPodrobnee.innerHTML = `
       <label>Страна производства</label>
       <p>${limitValues(
         movie.countries.map((item) => upperFirstChar(item.country)),
-        4
+        4,
       ).join(", ")}</p>
     </div>
     `
@@ -63,7 +63,7 @@ movieCardPodrobnee.innerHTML = `
         movie.direction
           .filter((person) => person.professionKey === "ACTOR")
           .map((item) => upperFirstChar(item.nameRu)),
-        4
+        4,
       ).join(", ")}</p>
     </div>
     `
@@ -79,7 +79,7 @@ movieCardPodrobnee.innerHTML = `
         movie.direction
           .filter((person) => person.professionKey === "DIRECTOR")
           .map((item) => upperFirstChar(item.nameRu)),
-        4
+        4,
       ).join(", ")}</p>
     </div>
     `

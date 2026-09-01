@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788205088420" clover="3.2.0">
-  <project timestamp="1788205088420" name="All files">
+<coverage generated="1788251229150" clover="3.2.0">
+  <project timestamp="1788251229150" name="All files">
     <metrics statements="21" coveredstatements="15" conditionals="22" coveredconditionals="20" methods="3" coveredmethods="2" elements="46" coveredelements="37" complexity="0" loc="21" ncloc="21" packages="1" files="2" classes="2"/>
     <file name="card-movie.js" path="D:\Diplom_project_eduson\script\card-movie.js">
       <metrics statements="20" coveredstatements="14" conditionals="22" coveredconditionals="20" methods="3" coveredmethods="2"/>
