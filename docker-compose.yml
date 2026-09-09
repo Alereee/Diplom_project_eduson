@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      # Пробрасываем текущую папку с кодом внутрь контейнера
+      - .:/app
+      # ВАЖНО: Пробрасываем node_modules отдельно, чтобы не перезаписывать их при каждом запуске
+      - /app/node_modules
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5173
