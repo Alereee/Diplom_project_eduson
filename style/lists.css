@@ -97,6 +97,21 @@ h2 {
 .main-content-nav button {
   font-size: var(--font-size-4xl);
 }
+.slider-disabled .arrow-left,
+.slider-disabled .arrow-right {
+  display: none !important;
+}
+
+.slider-disabled .wrapper-movies{
+  padding: 0 10px;
+}
+.main-content-movies {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 .main-content-movies .movies-slider {
   display: flex;
   flex-wrap: wrap;

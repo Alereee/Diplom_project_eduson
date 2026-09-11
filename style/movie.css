@@ -135,6 +135,10 @@ video {
   justify-content: space-between;
   align-items: center;
 }
+
+.slider-disabled .gallery-arrow {
+  display: none !important;
+}
 footer{
   margin-top: 30px;
 }

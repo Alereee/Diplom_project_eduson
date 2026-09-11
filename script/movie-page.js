@@ -125,6 +125,9 @@ if (cadr && cadr.length > 0) {
     cardSlider.appendChild(slideImage(item.imageUrl));
     console.log(item.imageUrl);
   });
+  if (cadr.length <= 1) {
+    cardSlider.parentElement.classList.add("slider-disabled");
+  }
 } else {
   const fragmentsContainer = document.querySelector(".fragments-contanier");
   if (fragmentsContainer) {
@@ -136,13 +139,13 @@ const getRatingStar = (rating) => {
   const ratingConstStar = 10;
   let ratingStar = "";
   for (let i = 0; i < rating; i++) {
-    ratingStar += `<img src="../assets/star-black.svg" alt="star" class="review-item-rating-item">`;
+    ratingStar += `<img src="${starBlack}" alt="star" class="review-item-rating-item">`;
     if (i === ratingConstStar) {
       return ratingStar;
     }
   }
   for (let i = rating; i < ratingConstStar; i++) {
-    ratingStar += `<img src="../assets/star.svg" alt="star" class="review-item-rating-item">`;
+    ratingStar += `<img src="${star}" alt="star" class="review-item-rating-item">`;
   }
   return ratingStar;
 };

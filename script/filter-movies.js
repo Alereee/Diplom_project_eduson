@@ -52,6 +52,14 @@ function filterMovies() {
 
   if (window.renderMovies) {
     window.renderMovies(filtered);
+    const sliderContainer = document.querySelector(".movie-list");
+    if (sliderContainer) {
+      if (filtered.length <= 1) {
+        sliderContainer.classList.add("slider-disabled");
+      } else {
+        sliderContainer.classList.remove("slider-disabled");
+      }
+    }
   }
 }
 
