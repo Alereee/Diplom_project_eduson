@@ -2,6 +2,9 @@ import { getDynamicColor } from "./card-movie.js";
 import { limitValues } from "./limitValues.js";
 import { KinopoiskApi } from "./api.js";
 import { slideImage } from "./card-movie.js";
+import star from "../assets/star.svg";
+import starBlack from "../assets/star-black.svg";
+
 
 const kinopoiskApi = new KinopoiskApi();
 const urlParams = new URLSearchParams(window.location.search);
